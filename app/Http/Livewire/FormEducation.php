@@ -110,7 +110,7 @@ class FormEducation extends Component
     {
         // Input SD
         if($this->elementaryId == NULL){
-            Education::create([
+            $elementary = Education::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->elementaryName,
                 'province' => $this->elementaryProvince,
@@ -119,6 +119,8 @@ class FormEducation extends Component
                 'graduate' => $this->elementaryGraduate,
                 'level' => "SD",
             ]);
+
+            $this->elementaryId = $elementary->id;
         }
         else{
             Education::find($this->elementaryId)->update([
@@ -135,7 +137,7 @@ class FormEducation extends Component
 
         // Input SMP
         if($this->juniorId == NULL){
-            Education::create([
+            $junior = Education::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->juniorName,
                 'province' => $this->juniorProvince,
@@ -144,6 +146,8 @@ class FormEducation extends Component
                 'graduate' => $this->juniorGraduate,
                 'level' => "SMP",
             ]);
+
+            $this->juniorId = $junior->id;
         }
         else{
             Education::find($this->juniorId)->update([
@@ -160,7 +164,7 @@ class FormEducation extends Component
 
         // Input SMA
         if($this->highId == NULL){
-            Education::create([
+            $high = Education::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->highName,
                 'province' => $this->highProvince,
@@ -170,6 +174,8 @@ class FormEducation extends Component
                 'major' => $this->highMajor,
                 'level' => "SMA",
             ]);
+
+            $this->highId = $high->id;
         }
         else{
             Education::find($this->highId)->update([

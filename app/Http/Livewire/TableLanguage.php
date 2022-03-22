@@ -12,7 +12,8 @@ class TableLanguage extends Component
         'refreshLanguage' => '$refresh'
     ];
 
-    public function select($id, $select){
+    public function select($id, $select)
+    {
         if($select == "edit"){
             $this->emit('getLanguage', $id);
         }

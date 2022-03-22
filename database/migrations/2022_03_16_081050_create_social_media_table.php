@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('social_media', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('facebook');
-            $table->string('twitter');
-            $table->string('instagram');
-            $table->string('tiktok');
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('tiktok')->nullable();
             $table->timestamps();
         });
     }

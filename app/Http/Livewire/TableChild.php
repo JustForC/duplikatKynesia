@@ -12,7 +12,8 @@ class TableChild extends Component
         'refreshTable' => '$refresh'
     ];
 
-    public function select($id, $select){
+    public function select($id, $select)
+    {
         if($select == "edit"){
             $this->emit('getChild', $id);
         }

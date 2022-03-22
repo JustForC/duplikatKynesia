@@ -12,7 +12,8 @@ class TableOrganization extends Component
         'refreshOrganization' => '$refresh'
     ];
 
-    public function select($id, $select){
+    public function select($id, $select)
+    {
         if($select == "edit"){
             $this->emit('getOrganization', $id);
         }

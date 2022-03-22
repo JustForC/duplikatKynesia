@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,10 +26,20 @@ Route::group(['prefix' => 'auth', 'controller' => AuthController::class, 'as' =>
     Route::get('/logout', 'logout')->name('logout');
 });
 
-Route::group(['prefix' => 'user', 'controller' => UserController::class, 'as' => 'user.'], function(){
+Route::group(['prefix' => 'user', 'controller' => UserController::class, 'as' => 'user.'], function()
+{
     Route::get('/', 'homepage')->name('homepage');
     Route::get('/biodata', 'biodata')->name('biodata');
     Route::get('/family', 'family')->name('family');
     Route::get('/education', 'education')->name('education');
     Route::get('/downloadable', 'downloadable')->name('downloadable');
+});
+
+Route::group(['prefix' => 'admin', 'controller' => AdminController::class, 'as' => 'admin.'], function()
+{
+    Route::get('/', 'homepage')->name('homepage');
+    Route::get('/stepOne', 'stepOne')->name('stepOne');
+    Route::get('/stepTwo', 'stepTwo')->name('stepTwo');
+    Route::get('/rejected', 'rejected')->name('rejected');
+    Route::get('/detail/{id}', 'detail')->name('detail');
 });

@@ -16,6 +16,9 @@
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/vendors.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/extensions/nouislider.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/ui/prism.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/forms/select/select2.min.css')}}">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -29,7 +32,8 @@
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/core/menu/menu-types/vertical-menu.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/core/colors/palette-gradient.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/pages/colors.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/plugins/extensions/noui-slider.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/pages/app-ecommerce-shop.css')}}">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -45,18 +49,19 @@
         <!-- BEGIN: Vendor JS-->
         <script src="{{asset('app-assets/vendors/js/vendors.min.js')}}"></script>
         <!-- BEGIN Vendor JS-->
-
+    
         <!-- BEGIN: Page Vendor JS-->
+        <script src="{{asset('app-assets/vendors/js/ui/prism.min.js')}}"></script>
+        <script src="{{asset('app-assets/vendors/js/extensions/wNumb.js')}}"></script>
+        <script src="{{asset('app-assets/vendors/js/extensions/nouislider.min.js')}}"></script>
+        <script src="{{asset('app-assets/vendors/js/forms/select/select2.full.min.js')}}"></script>
         <!-- END: Page Vendor JS-->
-
+    
         <!-- BEGIN: Theme JS-->
         <script src="{{asset('app-assets/js/core/app-menu.js')}}"></script>
         <script src="{{asset('app-assets/js/core/app.js')}}"></script>
         <script src="{{asset('app-assets/js/scripts/components.js')}}"></script>
         <!-- END: Theme JS-->
-
-        <!-- BEGIN: Page JS-->
-        <!-- END: Page JS-->
         @yield('javascript')
 </body>
 

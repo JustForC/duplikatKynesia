@@ -12,7 +12,8 @@ class TableTraining extends Component
         'refreshTraining' => '$refresh'
     ];
 
-    public function select($id, $select){
+    public function select($id, $select)
+    {
         if($select == "edit"){
             $this->emit('getTraining', $id);
         }

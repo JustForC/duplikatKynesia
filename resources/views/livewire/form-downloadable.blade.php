@@ -1,0 +1,73 @@
+<div>
+    <div class="content-body">
+        <section id="content-types">
+            <div class="row match-height">
+                <div class="col-xl">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="alert alert-success alert-dismissible fade hidden" role="alert" id="alertSuccess">
+                                    <h4 class="alert-heading">Success</h4>
+                                    <p class="mb-0">
+                                        Data berhasil disimpan.
+                                    </p>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <input type="hidden" wire:model="downloadableId">
+                                <input type="hidden" wire:model="identityPath">
+                                <input type="hidden" wire:model="graduationPath">
+                                <input type="hidden" wire:model="universityPath">
+                                <input type="hidden" wire:model="motivationPath">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <fieldset class="form-group">
+                                            <label for="helpInputTop">KTP/ Paspor/ KK</label>
+                                            <div class="custom-file">
+                                                <input wire:model="identity" type="file" class="custom-file-input" id="helpInputTop">
+                                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <fieldset class="form-group">
+                                            <label for="helpInputTop">Surat Keterangan Lulus/Ijazah</label>
+                                            <div class="custom-file">
+                                                <input wire:model="graduation" type="file" class="custom-file-input" id="helpInputTop">
+                                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <fieldset class="form-group">
+                                            <label for="helpInputTop">Bukti Diterima Di Perguruan Tinggi</label>
+                                            <div class="custom-file">
+                                                <input wire:model="university" type="file" class="custom-file-input" id="helpInputTop">
+                                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <fieldset class="form-group">
+                                            <label for="helpInputTop">Motivation Letter</label>
+                                            <div class="custom-file">
+                                                <input wire:model="motivation" type="file" class="custom-file-input" id="helpInputTop">
+                                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <button wire:click="checkPreviousForm()" class="btn btn-success">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

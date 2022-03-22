@@ -20,7 +20,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('role');
-            $table->string('statusOne');
+            $table->string('statusOne')->nullable();
             $table->string('statusTwo')->nullable();
             $table->string('interviewLink')->nullable();
             $table->string('interviewDate')->nullable();

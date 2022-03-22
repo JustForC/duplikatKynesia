@@ -12,7 +12,8 @@ class TableAchievement extends Component
         'refreshAchievement' => '$refresh'
     ];
 
-    public function select($id, $select){
+    public function select($id, $select)
+    {
         if($select == "edit"){
             $this->emit('getAchievement', $id);
         }

@@ -30,6 +30,9 @@ class AuthController extends Controller
             if(Auth::user()->role == 0){
                 return redirect()->route('user.homepage');
             }
+            elseif(Auth::user()->role == 1){
+                return redirect()->route('admin.homepage');
+            }
         }
 
         return redirect()->back();

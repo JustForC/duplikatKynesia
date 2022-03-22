@@ -12,7 +12,8 @@ class TableTalent extends Component
         'refreshTalent' => '$refresh'
     ];
 
-    public function select($id, $select){
+    public function select($id, $select)
+    {
         if($select == "edit"){
             $this->emit('getTalent', $id);
         }

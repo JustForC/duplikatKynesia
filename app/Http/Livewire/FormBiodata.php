@@ -17,7 +17,8 @@ class FormBiodata extends Component
     public $university, $entranceType, $entranceNumber, $major;
     public $biodataId, $socialMediaId, $universityId;
 
-    public function mount(){
+    public function mount()
+    {
         if(Biodata::where('user_id', '=', Auth::user()->id)->exists()){
             $biodata = Biodata::where('user_id', '=', Auth::user()->id)->first();
             $this->biodataId = $biodata->id;
@@ -66,9 +67,10 @@ class FormBiodata extends Component
         return view('livewire.form-biodata');
     }
 
-    public function save(){
+    public function save()
+    {
         if($this->biodataId == NULL){
-            Biodata::create([
+            $biodata = Biodata::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->name,
                 'nickname' => $this->nickname,
@@ -90,6 +92,8 @@ class FormBiodata extends Component
                 'cityLiving' => $this->cityLiving,
                 'provinceLiving' => $this->provinceLiving,
             ]);
+
+            $this->biodataId = $biodata->id;
         }
         else{
             Biodata::find($this->biodataId)->update([
@@ -116,33 +120,41 @@ class FormBiodata extends Component
             ]);
         }
 
-        if($this->socialMediaId == NULL){
-            SocialMedia::create([
-                'user_id' => Auth::user()->id,
-                'facebook' => $this->facebook,
-                'twitter' => $this->twitter,
-                'instagram' => $this->instagram,
-                'tiktok' => $this->tiktok,
-            ]);
-        }
-        else{
-            SocialMedia::find($this->socialMediaId)->update([
-                'user_id' => Auth::user()->id,
-                'facebook' => $this->facebook,
-                'twitter' => $this->twitter,
-                'instagram' => $this->instagram,
-                'tiktok' => $this->tiktok,
-            ]);
+        if($this->facebook != NULL){
+            if($this->socialMediaId == NULL)
+            {
+                $socialMedia = SocialMedia::create([
+                    'user_id' => Auth::user()->id,
+                    'facebook' => $this->facebook,
+                    'twitter' => $this->twitter,
+                    'instagram' => $this->instagram,
+                    'tiktok' => $this->tiktok,
+                ]);
+
+                $this->socialMediaId = $socialMedia->id;
+            }
+            else
+            {
+                SocialMedia::find($this->socialMediaId)->update([
+                    'user_id' => Auth::user()->id,
+                    'facebook' => $this->facebook,
+                    'twitter' => $this->twitter,
+                    'instagram' => $this->instagram,
+                    'tiktok' => $this->tiktok,
+                ]);
+            }
         }
 
         if($this->universityId == NULL){
-            University::create([
+            $university = University::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->university,
                 'entranceType' => $this->entranceType,
                 'entranceNumber' => $this->entranceNumber,
                 'major' => $this->major,
             ]);
+
+            $this->universityId = $university->id;
         }
         else{
             University::find($this->universityId)->update([

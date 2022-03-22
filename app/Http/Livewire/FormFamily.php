@@ -20,7 +20,8 @@ class FormFamily extends Component
         'deleteChild' => 'deleteChild',
     ];
 
-    public function mount(){
+    public function mount()
+    {
         if(Family::where('user_id','=',Auth::user()->id)->where('status', '=', 'Father')->exists()){
             $father = Family::where('user_id','=',Auth::user()->id)
                         ->where('status', '=', 'Father')
@@ -57,10 +58,11 @@ class FormFamily extends Component
         return view('livewire.form-family');
     }
 
-    public function save(){
+    public function save()
+    {
         // Father Input
         if($this->fatherId == NULL){
-            Family::create([
+            $father = Family::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->fatherName,
                 'birthdate' => $this->fatherBirthdate,
@@ -70,6 +72,8 @@ class FormFamily extends Component
                 'status' => "Father",
                 'gender' => "Pria",
             ]);
+
+            $this->fatherid = $father->id;
         }
         else{
             Family::find($this->fatherId)->update([
@@ -87,7 +91,7 @@ class FormFamily extends Component
 
         // Mother Input
         if($this->motherId == NULL){
-            Family::create([
+            $mother = Family::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->motherName,
                 'birthdate' => $this->motherBirthdate,
@@ -97,6 +101,8 @@ class FormFamily extends Component
                 'status' => "Mother",
                 'gender' => "Wanita",
             ]);
+
+            $this->motherId = $mother->id;
         }
         else{
             Family::find($this->motherId)->update([
@@ -114,10 +120,12 @@ class FormFamily extends Component
 
         // Input Networth
         if($this->networthId == NULL){
-            Networth::create([
+            $networth = Networth::create([
                 'user_id' => Auth::user()->id,
                 'networth' => $this->networthValue
             ]);
+
+            $this->networthId = $networth->id;
         }
         else{
             Networth::find($this->networthId)->update([
@@ -129,7 +137,8 @@ class FormFamily extends Component
         $this->dispatchBrowserEvent('showAlert');
     }
 
-    public function getChild($id){
+    public function getChild($id)
+    {
         $child = Family::find($id);
         $this->childId = $child->id;
         $this->childName = $child->name;
@@ -140,7 +149,8 @@ class FormFamily extends Component
         $this->childGender = $child->gender;
     }
 
-    public function clearChild(){
+    public function clearChild()
+    {
         $this->childId = NULL;
         $this->childName = NULL;
         $this->childBirthdate = NULL;
@@ -150,7 +160,8 @@ class FormFamily extends Component
         $this->childGender = NULL;
     }
 
-    public function saveChild(){
+    public function saveChild()
+    {
         if($this->childId == NULL){
             Family::create([
                 'user_id' => Auth::user()->id,
@@ -183,7 +194,8 @@ class FormFamily extends Component
         }
     }
 
-    public function deleteChild($id){
+    public function deleteChild($id)
+    {
         $child = Family::find($id);
         $this->childId = $child->id;
         $this->childName = $child->name;
@@ -191,7 +203,8 @@ class FormFamily extends Component
         $this->dispatchBrowserEvent('showDelete');
     }
 
-    public function delete(){
+    public function delete()
+    {
         Family::find($this->childId)->delete();
 
         $this->emit('refreshTable');
@@ -200,7 +213,8 @@ class FormFamily extends Component
         $this->clearChild();
     }
 
-    public function closeModal(){
+    public function closeModal()
+    {
         $this->dispatchBrowserEvent('closeDelete');
         $this->clearChild();
     }
