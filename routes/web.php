@@ -33,6 +33,8 @@ Route::group(['prefix' => 'user', 'controller' => UserController::class, 'as' =>
     Route::get('/family', 'family')->name('family');
     Route::get('/education', 'education')->name('education');
     Route::get('/downloadable', 'downloadable')->name('downloadable');
+    Route::get('/test', 'onlineTest')->name('test');
+    Route::get('/interview', 'onlineInterview')->name('interview');
 });
 
 Route::group(['prefix' => 'admin', 'controller' => AdminController::class, 'as' => 'admin.'], function()

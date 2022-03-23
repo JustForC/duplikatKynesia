@@ -73,7 +73,7 @@ class FormFamily extends Component
                 'gender' => "Pria",
             ]);
 
-            $this->fatherid = $father->id;
+            $this->fatherId = $father->id;
         }
         else{
             Family::find($this->fatherId)->update([

@@ -15,6 +15,12 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
+                                <div class="row">
+                                    <div class="col-xl">    
+                                        <h3 class="content-header-title float-left mb-0">Biodata Diri</h3>
+                                    </div>
+                                </div>
+                                <br>
                                 <input type="hidden" wire:model="biodataId">
                                 <div class="row">
                                     <div class="col-xl">
@@ -70,6 +76,13 @@
                                         </fieldset>
                                     </div>
                                 </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-xl">    
+                                        <h3 class="content-header-title float-left mb-0">Alamat</h3>
+                                    </div>
+                                </div>
+                                <br>
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
@@ -232,6 +245,13 @@
                                         </fieldset>
                                     </div>
                                 </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-xl">    
+                                        <h3 class="content-header-title float-left mb-0">Social Media</h3>
+                                    </div>
+                                </div>
+                                <br>
                                 <input type="hidden" wire:model="socialMediaId">
                                 <div class="row">
                                     <div class="col-xl-6">
@@ -261,6 +281,13 @@
                                         </fieldset>
                                     </div>
                                 </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-xl">    
+                                        <h3 class="content-header-title float-left mb-0">Universitas Diterima</h3>
+                                    </div>
+                                </div>
+                                <br>
                                 <input type="hidden" wire:model="universityId">
                                 <div class="row">
                                     <div class="col-xl-6">

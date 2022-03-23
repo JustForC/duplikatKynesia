@@ -31,9 +31,9 @@
             </li>
             <li class=" nav-item"><a href="#"><i class="feather icon-file-text"></i><span class="menu-title">Tahapan Lanjut</span></a>
                 <ul class="menu-content">
-                    <li><a href="app-user-list.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List">Test Online</span></a>
+                    <li><a href="{{route('user.test')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List">Test Online</span></a>
                     </li>
-                    <li><a href="app-user-view.html"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Wawancara Online</span></a>
+                    <li><a href="{{route('user.interview')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Wawancara Online</span></a>
                     </li>
                 </ul>
             </li>

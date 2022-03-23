@@ -21,6 +21,12 @@
                                 <input type="hidden" wire:model="universityPath">
                                 <input type="hidden" wire:model="motivationPath">
                                 <div class="row">
+                                    <div class="col-xl">    
+                                        <h3 class="content-header-title float-left mb-0">Dokumen Pelengkap</h3>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
                                             <label for="helpInputTop">KTP/ Paspor/ KK</label>

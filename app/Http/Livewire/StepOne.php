@@ -77,7 +77,7 @@ class StepOne extends Component
     {
         User::find($this->userId)->update([
             'statusOne' => 'Tidak Lolos',
-            'statusTwo' => 'Tidak Lolos Tahap Satu',
+            'statusTwo' => 'Tidak Lolos',
         ]);
         $this->clearUser();
         $this->dispatchBrowserEvent('closeModalReject');

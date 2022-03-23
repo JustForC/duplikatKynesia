@@ -15,7 +15,19 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
+                                <div class="row">
+                                    <div class="col-xl">    
+                                        <h2 class="content-header-title float-left mb-0">Pendidikan Formal</h2>
+                                    </div>
+                                </div>
+                                <br>
                                 {{-- SD --}}
+                                <div class="row">
+                                    <div class="col-xl">    
+                                        <h3 class="content-header-title float-left mb-0">SD</h3>
+                                    </div>
+                                </div>
+                                <br>
                                 <input type="hidden" wire:model="elementaryId">
                                 <div class="row">
                                     <div class="col-xl">
@@ -89,9 +101,16 @@
                                         </fieldset>
                                     </div>
                                 </div>
+                                <hr>
                                 {{-- End SD --}}
 
                                 {{-- SMP --}}
+                                <div class="row">
+                                    <div class="col-xl">    
+                                        <h3 class="content-header-title float-left mb-0">SMP</h3>
+                                    </div>
+                                </div>
+                                <br>
                                 <input type="hidden" wire:model="juniorId">
                                 <div class="row">
                                     <div class="col-xl">
@@ -165,9 +184,16 @@
                                         </fieldset>
                                     </div>
                                 </div>
+                                <hr>
                                 {{-- End SMP --}}
 
                                 {{-- SMA --}}
+                                <div class="row">
+                                    <div class="col-xl">    
+                                        <h3 class="content-header-title float-left mb-0">SMA</h3>
+                                    </div>
+                                </div>
+                                <br>
                                 <input type="hidden" wire:model="highId">
                                 <div class="row">
                                     <div class="col-xl-6">
@@ -262,6 +288,12 @@
                                 {{-- End SMA --}}
 
                                 {{-- Training --}}
+                                <div class="row">
+                                    <div class="col-xl">    
+                                        <h3 class="content-header-title float-left mb-0">Pendidikan Non-Formal</h3>
+                                    </div>
+                                </div>
+                                <br>
                                 <input type="hidden" wire:model="trainingId">
                                 <div class="row">
                                     <div class="col-xl">
@@ -314,6 +346,12 @@
                                 {{-- End Training --}}
 
                                 {{-- Achievement --}}
+                                <div class="row">
+                                    <div class="col-xl">    
+                                        <h3 class="content-header-title float-left mb-0">Prestasi</h3>
+                                    </div>
+                                </div>
+                                <br>
                                 <input type="hidden" wire:model="achievementId">
                                 <div class="row">
                                     <div class="col-xl">
@@ -353,6 +391,12 @@
                                 {{-- End Achievement --}}
 
                                 {{-- Language --}}
+                                <div class="row">
+                                    <div class="col-xl">    
+                                        <h3 class="content-header-title float-left mb-0">Bahasa Asing</h3>
+                                    </div>
+                                </div>
+                                <br>
                                 <input type="hidden" wire:model="languageId">
                                 <div class="row">
                                     <div class="col-xl">
@@ -433,6 +477,12 @@
                                 {{-- End Language --}}
 
                                 {{-- Organization --}}
+                                <div class="row">
+                                    <div class="col-xl">    
+                                        <h3 class="content-header-title float-left mb-0">Riwayat Organisasi</h3>
+                                    </div>
+                                </div>
+                                <br>
                                 <input type="hidden" wire:model="organizationId">
                                 <div class="row">
                                     <div class="col-xl">
@@ -475,6 +525,12 @@
                                 {{-- End Organization --}}
 
                                 {{-- Talent --}}
+                                <div class="row">
+                                    <div class="col-xl">    
+                                        <h3 class="content-header-title float-left mb-0">Bakat</h3>
+                                    </div>
+                                </div>
+                                <br>
                                 <input type="hidden" wire:model="talentId">
                                 <div class="row">
                                     <div class="col-xl">

@@ -30,4 +30,14 @@ class UserController extends Controller
     {
         return view('user.form.downloadable.downloadable');
     }
+
+    public function onlineTest()
+    {
+        return view('user.online.test.test');
+    }
+
+    public function onlineInterview()
+    {
+        return view('user.online.interview.interview');
+    }
 }

@@ -15,12 +15,19 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
+
                                 {{-- Father --}}
+                                <div class="row">
+                                    <div class="col-xl">    
+                                        <h3 class="content-header-title float-left mb-0">Ayah</h3>
+                                    </div>
+                                </div>
+                                <br>
                                 <input type="hidden" wire:model="fatherId">
                                 <div class="row">
                                     <div class="col-xl">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Nama Lengkap (Ayah)</label>
+                                            <label for="helpInputTop">Nama Lengkap</label>
                                             <input wire:model="fatherName" type="text" class="form-control" id="helpInputTop">
                                         </fieldset>
                                     </div>
@@ -66,12 +73,19 @@
                                 </div>
                                 <hr>
                                 {{-- End Father --}}
+
                                 {{-- Mother --}}
+                                <div class="row">
+                                    <div class="col-xl">    
+                                        <h3 class="content-header-title float-left mb-0">Ibu</h3>
+                                    </div>
+                                </div>
+                                <br>
                                 <input type="hidden" wire:model="motherId">
                                 <div class="row">
                                     <div class="col-xl">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Nama Lengkap (Ibu)</label>
+                                            <label for="helpInputTop">Nama Lengkap</label>
                                             <input wire:model="motherName" type="text" class="form-control" id="helpInputTop">
                                         </fieldset>
                                     </div>
@@ -117,12 +131,19 @@
                                 </div>
                                 <hr>
                                 {{-- End Mother --}}
+
                                 {{-- Child --}}
+                                <div class="row">
+                                    <div class="col-xl">    
+                                        <h3 class="content-header-title float-left mb-0">Anak</h3>
+                                    </div>
+                                </div>
+                                <br>
                                 <input type="hidden" wire:model="childId">
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Nama Lengkap (Anak)</label>
+                                            <label for="helpInputTop">Nama Lengkap</label>
                                             <input wire:model="childName" type="text" class="form-control" id="helpInputTop">
                                         </fieldset>
                                     </div>
@@ -185,7 +206,14 @@
                                 <livewire:table-child></livewire:table-child>
                                 <hr>
                                 {{-- End Child --}}
+
                                 {{-- Networth --}}
+                                <div class="row">
+                                    <div class="col-xl">    
+                                        <h3 class="content-header-title float-left mb-0">Penghasilan Orang Tua</h3>
+                                    </div>
+                                </div>
+                                <br>
                                 <input type="hidden" wire:model="nethworthId">
                                 <div class="row">
                                     <div class="col-xl">
