@@ -27,30 +27,30 @@
                                 <div class="row">
                                     <div class="col-xl">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Nama Lengkap</label>
-                                            <input wire:model="fatherName" type="text" class="form-control" id="helpInputTop">
+                                            <label for="fatherName">Nama Lengkap</label>
+                                            <input wire:model="fatherName" type="text" class="form-control" id="fatherName">
                                         </fieldset>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Tempat Lahir</label>
-                                            <input wire:model="fatherBirthplace" type="text" class="form-control" id="helpInputTop">
+                                            <label for="fatherBirthplace">Tempat Lahir</label>
+                                            <input wire:model="fatherBirthplace" type="text" class="form-control" id="fatherBirthplace">
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="pickDate">Tanggal Lahir</label>
-                                            <input wire:model="fatherBirthdate" type='date' class="form-control pickadate" id="pickDate">
+                                            <label for="fatherBirthdate">Tanggal Lahir</label>
+                                            <input wire:model="fatherBirthdate" type='date' class="form-control pickadate" id="fatherBirthdate">
                                         </fieldset>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="basicSelect">Pendidikan Terakhir</label>
-                                            <select wire:model="fatherEducation" class="form-control" id="basicSelect">
+                                            <label for="fatherEducation">Pendidikan Terakhir</label>
+                                            <select wire:model="fatherEducation" class="form-control" id="fatherEducation">
                                                 <option disable selected hidden>Silahkan Pilih</option>
                                                 <option value="SD">SD</option>
                                                 <option value="SMP">SMP</option>
@@ -66,8 +66,8 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Pekerjaan</label>
-                                            <input wire:model="fatherJob" type="text" class="form-control" id="helpInputTop">
+                                            <label for="fatherJob">Pekerjaan</label>
+                                            <input wire:model="fatherJob" type="text" class="form-control" id="fatherJob">
                                         </fieldset>
                                     </div>
                                 </div>
@@ -85,30 +85,30 @@
                                 <div class="row">
                                     <div class="col-xl">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Nama Lengkap</label>
-                                            <input wire:model="motherName" type="text" class="form-control" id="helpInputTop">
+                                            <label for="motherName">Nama Lengkap</label>
+                                            <input wire:model="motherName" type="text" class="form-control" id="motherName">
                                         </fieldset>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Tempat Lahir</label>
-                                            <input wire:model="motherBirthplace" type="text" class="form-control" id="helpInputTop">
+                                            <label for="motherBirthplace">Tempat Lahir</label>
+                                            <input wire:model="motherBirthplace" type="text" class="form-control" id="motherBirthplace">
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="pickDate">Tanggal Lahir</label>
-                                            <input wire:model="motherBirthdate" type='date' class="form-control pickadate" id="pickDate">
+                                            <label for="motherBirthdate">Tanggal Lahir</label>
+                                            <input wire:model="motherBirthdate" type='date' class="form-control pickadate" id="motherBirthdate">
                                         </fieldset>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="basicSelect">Pendidikan Terakhir</label>
-                                            <select wire:model="motherEducation" class="form-control" id="basicSelect">
+                                            <label for="motherEducation">Pendidikan Terakhir</label>
+                                            <select wire:model="motherEducation" class="form-control" id="motherEducation">
                                                 <option disable selected hidden>Silahkan Pilih</option>
                                                 <option value="SD">SD</option>
                                                 <option value="SMP">SMP</option>
@@ -124,8 +124,8 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Pekerjaan</label>
-                                            <input wire:model="motherJob" type="text" class="form-control" id="helpInputTop">
+                                            <label for="motherJob">Pekerjaan</label>
+                                            <input wire:model="motherJob" type="text" class="form-control" id="motherJob">
                                         </fieldset>
                                     </div>
                                 </div>
@@ -143,14 +143,14 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Nama Lengkap</label>
-                                            <input wire:model="childName" type="text" class="form-control" id="helpInputTop">
+                                            <label for="childName">Nama Lengkap</label>
+                                            <input wire:model="childName" type="text" class="form-control" id="childName">
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="basicSelect">Jenis Kelamin</label>
-                                            <select wire:model="childGender" class="form-control" id="basicSelect">
+                                            <label for="childGender">Jenis Kelamin</label>
+                                            <select wire:model="childGender" class="form-control" id="childGender">
                                                 <option disable selected hidden>Silahkan Pilih</option>
                                                 <option value="Pria">Pria</option>
                                                 <option value="Wanita">Wanita</option>
@@ -161,22 +161,22 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Tempat Lahir</label>
-                                            <input wire:model="childBirthplace" type="text" class="form-control" id="helpInputTop">
+                                            <label for="childBirthplace">Tempat Lahir</label>
+                                            <input wire:model="childBirthplace" type="text" class="form-control" id="childBirthplace">
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="pickDate">Tanggal Lahir</label>
-                                            <input wire:model="childBirthdate" type='date' class="form-control pickadate" id="pickDate">
+                                            <label for="childBirthdate">Tanggal Lahir</label>
+                                            <input wire:model="childBirthdate" type='date' class="form-control pickadate" id="childBirthdate">
                                         </fieldset>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="basicSelect">Pendidikan Terakhir</label>
-                                            <select wire:model="childEducation" class="form-control" id="basicSelect">
+                                            <label for="childEducation">Pendidikan Terakhir</label>
+                                            <select wire:model="childEducation" class="form-control" id="childEducation">
                                                 <option disable selected hidden>Silahkan Pilih</option>
                                                 <option value="SD">SD</option>
                                                 <option value="SMP">SMP</option>
@@ -192,8 +192,8 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Pekerjaan</label>
-                                            <input wire:model="childJob" type="text" class="form-control" id="helpInputTop">
+                                            <label for="childJob">Pekerjaan</label>
+                                            <input wire:model="childJob" type="text" class="form-control" id="childJob">
                                         </fieldset>
                                     </div>
                                 </div>
@@ -218,8 +218,8 @@
                                 <div class="row">
                                     <div class="col-xl">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Pendapatan Orang Tua</label>
-                                            <input wire:model="networthValue" type="number" class="form-control" id="helpInputTop">
+                                            <label for="networthValue">Pendapatan Orang Tua</label>
+                                            <input wire:model="networthValue" type="number" class="form-control" id="networthValue">
                                         </fieldset>
                                     </div>
                                 </div>

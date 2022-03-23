@@ -32,16 +32,16 @@
                                 <div class="row">
                                     <div class="col-xl">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Nama Sekolah</label>
-                                            <input wire:model="elementaryName" type="text" class="form-control" id="helpInputTop">
+                                            <label for="elementaryName">Nama Sekolah</label>
+                                            <input wire:model="elementaryName" type="text" class="form-control" id="elementaryName">
                                         </fieldset>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="basicSelect">Provinsi</label>
-                                            <select wire:model="elementaryProvince" class="form-control" id="basicSelect">
+                                            <label for="elementaryProvince">Provinsi</label>
+                                            <select wire:model="elementaryProvince" class="form-control" id="elementaryProvince">
                                                 <option disable selected hidden>Silahkan Pilih</option>
                                                 <option value="Aceh">Aceh</option>
                                                 <option value="Bali">Bali</option>
@@ -82,22 +82,22 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Kota/Kabupaten</label>
-                                            <input wire:model="elementaryCity" type="text" class="form-control" id="helpInputTop">
+                                            <label for="elementaryCity">Kota/Kabupaten</label>
+                                            <input wire:model="elementaryCity" type="text" class="form-control" id="elementaryCity">
                                         </fieldset>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Tahun Masuk</label>
-                                            <input wire:model="elementaryEnter" type="text" class="form-control" id="helpInputTop">
+                                            <label for="elementaryEnter">Tahun Masuk</label>
+                                            <input wire:model="elementaryEnter" type="text" class="form-control" id="elementaryEnter">
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Tahun Lulus</label>
-                                            <input wire:model="elementaryGraduate" type="text" class="form-control" id="helpInputTop">
+                                            <label for="elementaryGraduate">Tahun Lulus</label>
+                                            <input wire:model="elementaryGraduate" type="text" class="form-control" id="elementaryGraduate">
                                         </fieldset>
                                     </div>
                                 </div>
@@ -115,16 +115,16 @@
                                 <div class="row">
                                     <div class="col-xl">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Nama Sekolah</label>
-                                            <input wire:model="juniorName" type="text" class="form-control" id="helpInputTop">
+                                            <label for="juniorName">Nama Sekolah</label>
+                                            <input wire:model="juniorName" type="text" class="form-control" id="juniorName">
                                         </fieldset>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="basicSelect">Provinsi</label>
-                                            <select wire:model="juniorProvince" class="form-control" id="basicSelect">
+                                            <label for="juniorProvince">Provinsi</label>
+                                            <select wire:model="juniorProvince" class="form-control" id="juniorProvince">
                                                 <option disable selected hidden>Silahkan Pilih</option>
                                                 <option value="Aceh">Aceh</option>
                                                 <option value="Bali">Bali</option>
@@ -165,22 +165,22 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Kota/Kabupaten</label>
-                                            <input wire:model="juniorCity" type="text" class="form-control" id="helpInputTop">
+                                            <label for="juniorCity">Kota/Kabupaten</label>
+                                            <input wire:model="juniorCity" type="text" class="form-control" id="juniorCity">
                                         </fieldset>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Tahun Masuk</label>
-                                            <input wire:model="juniorEnter" type="text" class="form-control" id="helpInputTop">
+                                            <label for="juniorEnter">Tahun Masuk</label>
+                                            <input wire:model="juniorEnter" type="text" class="form-control" id="juniorEnter">
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Tahun Lulus</label>
-                                            <input wire:model="juniorGraduate" type="text" class="form-control" id="helpInputTop">
+                                            <label for="juniorGraduate">Tahun Lulus</label>
+                                            <input wire:model="juniorGraduate" type="text" class="form-control" id="juniorGraduate">
                                         </fieldset>
                                     </div>
                                 </div>
@@ -198,14 +198,14 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Nama Sekolah</label>
-                                            <input wire:model="highName" type="text" class="form-control" id="helpInputTop">
+                                            <label for="highName">Nama Sekolah</label>
+                                            <input wire:model="highName" type="text" class="form-control" id="highName">
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="basicSelect">Penjurusan</label>
-                                            <select wire:model="highMajor" class="form-control" id="basicSelect">
+                                            <label for="highMajor">Penjurusan</label>
+                                            <select wire:model="highMajor" class="form-control" id="highMajor">
                                                 <option disable selected hidden>Silahkan Pilih</option>
                                                 <option value="IPA">IPA</option>
                                                 <option value="IPS">IPS</option>
@@ -217,8 +217,8 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="basicSelect">Provinsi</label>
-                                            <select wire:model="highProvince" class="form-control" id="basicSelect">
+                                            <label for="highProvince">Provinsi</label>
+                                            <select wire:model="highProvince" class="form-control" id="highProvince">
                                                 <option disable selected hidden>Silahkan Pilih</option>
                                                 <option value="Aceh">Aceh</option>
                                                 <option value="Bali">Bali</option>
@@ -259,22 +259,22 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Kota/Kabupaten</label>
-                                            <input wire:model="highCity" type="text" class="form-control" id="helpInputTop">
+                                            <label for="highCity">Kota/Kabupaten</label>
+                                            <input wire:model="highCity" type="text" class="form-control" id="highCity">
                                         </fieldset>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Tahun Masuk</label>
-                                            <input wire:model="highEnter" type="text" class="form-control" id="helpInputTop">
+                                            <label for="highEnter">Tahun Masuk</label>
+                                            <input wire:model="highEnter" type="text" class="form-control" id="highEnter">
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Tahun Lulus</label>
-                                            <input wire:model="highGraduate" type="text" class="form-control" id="helpInputTop">
+                                            <label for="highGraduate">Tahun Lulus</label>
+                                            <input wire:model="highGraduate" type="text" class="form-control" id="highGraduate">
                                         </fieldset>
                                     </div>
                                 </div>
@@ -298,36 +298,36 @@
                                 <div class="row">
                                     <div class="col-xl">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Nama Pendidikan Non-Formal</label>
-                                            <input wire:model="trainingName" type="text" class="form-control" id="helpInputTop">
+                                            <label for="trainingName">Nama Pendidikan Non-Formal</label>
+                                            <input wire:model="trainingName" type="text" class="form-control" id="trainingName">
                                         </fieldset>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Lama Pendidikan</label>
-                                            <input wire:model="trainingPeriod" type="text" class="form-control" id="helpInputTop">
+                                            <label for="trainingPeriod">Lama Pendidikan</label>
+                                            <input wire:model="trainingPeriod" type="text" class="form-control" id="trainingPeriod">
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Tahun Diselenggarakan</label>
-                                            <input wire:model="trainingYear" type="text" class="form-control" id="helpInputTop">
+                                            <label for="trainingYear">Tahun Diselenggarakan</label>
+                                            <input wire:model="trainingYear" type="text" class="form-control" id="trainingYear">
                                         </fieldset>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Penyelenggara</label>
-                                            <input wire:model="trainingOrganizer" type="text" class="form-control" id="helpInputTop">
+                                            <label for="trainingOrganizer">Penyelenggara</label>
+                                            <input wire:model="trainingOrganizer" type="text" class="form-control" id="trainingOrganizer">
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="basicSelect">Sertifikat</label>
-                                            <select wire:model="trainingCertificate" class="form-control" id="basicSelect">
+                                            <label for="trainingCertificate">Sertifikat</label>
+                                            <select wire:model="trainingCertificate" class="form-control" id="trainingCertificate">
                                                 <option disable selected hidden>Silahkan Pilih</option>
                                                 <option value="Ya">Ya</option>
                                                 <option value="Tidak">Tidak</option>
@@ -356,22 +356,22 @@
                                 <div class="row">
                                     <div class="col-xl">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Nama Prestasi</label>
-                                            <input wire:model="achievementName" type="text" class="form-control" id="helpInputTop">
+                                            <label for="achievementName">Nama Prestasi</label>
+                                            <input wire:model="achievementName" type="text" class="form-control" id="achievementName">
                                         </fieldset>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Penyelenggara</label>
-                                            <input wire:model="achievementOrganizer" type="text" class="form-control" id="helpInputTop">
+                                            <label for="achievementOrganizer">Penyelenggara</label>
+                                            <input wire:model="achievementOrganizer" type="text" class="form-control" id="achievementOrganizer">
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="basicSelect">Tingkat</label>
-                                            <select wire:model="achievementLevel" class="form-control" id="basicSelect">
+                                            <label for="achievementLevel">Tingkat</label>
+                                            <select wire:model="achievementLevel" class="form-control" id="achievementLevel">
                                                 <option disable selected hidden>Silahkan Pilih</option>
                                                 <option value="Regional">Regional</option>
                                                 <option value="Nasional">Nasional</option>
@@ -401,8 +401,8 @@
                                 <div class="row">
                                     <div class="col-xl">
                                         <fieldset class="form-group">
-                                            <label for="basicSelect">Bahasa Asing</label>
-                                            <select wire:model="languageName" class="form-control" id="basicSelect">
+                                            <label for="languageName">Bahasa Asing</label>
+                                            <select wire:model="languageName" class="form-control" id="languageName">
                                                 <option disable selected hidden>Silahkan Pilih</option>
                                                 <option value="Inggris">Inggris</option>
                                                 <option value="Mandarin">Mandarin</option>
@@ -421,8 +421,8 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="basicSelect">Kemampuan Mendengar</label>
-                                            <select wire:model="languageListen" class="form-control" id="basicSelect">
+                                            <label for="languageListen">Kemampuan Mendengar</label>
+                                            <select wire:model="languageListen" class="form-control" id="languageListen">
                                                 <option disable selected hidden>Silahkan Pilih</option>
                                                 <option value="Beginner">Beginner</option>
                                                 <option value="Intermediate">Intermediate</option>
@@ -432,8 +432,8 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="basicSelect">Kemampuan Membaca</label>
-                                            <select wire:model="languageRead" class="form-control" id="basicSelect">
+                                            <label for="languageRead">Kemampuan Membaca</label>
+                                            <select wire:model="languageRead" class="form-control" id="languageRead">
                                                 <option disable selected hidden>Silahkan Pilih</option>
                                                 <option value="Beginner">Beginner</option>
                                                 <option value="Intermediate">Intermediate</option>
@@ -445,8 +445,8 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="basicSelect">Kemampuan Menulis</label>
-                                            <select wire:model="languageWrite" class="form-control" id="basicSelect">
+                                            <label for="languageWrite">Kemampuan Menulis</label>
+                                            <select wire:model="languageWrite" class="form-control" id="languageWrite">
                                                 <option disable selected hidden>Silahkan Pilih</option>
                                                 <option value="Beginner">Beginner</option>
                                                 <option value="Intermediate">Intermediate</option>
@@ -456,8 +456,8 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="basicSelect">Kemampuan Berbicara</label>
-                                            <select wire:model="languageTalk" class="form-control" id="basicSelect">
+                                            <label for="languageTalk">Kemampuan Berbicara</label>
+                                            <select wire:model="languageTalk" class="form-control" id="languageTalk">
                                                 <option disable selected hidden>Silahkan Pilih</option>
                                                 <option value="Beginner">Beginner</option>
                                                 <option value="Intermediate">Intermediate</option>
@@ -487,30 +487,30 @@
                                 <div class="row">
                                     <div class="col-xl">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Nama Organisasi</label>
-                                            <input wire:model="organizationName" type="text" class="form-control" id="helpInputTop">
+                                            <label for="organizationName">Nama Organisasi</label>
+                                            <input wire:model="organizationName" type="text" class="form-control" id="organizationName">
                                         </fieldset>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Periode Mengurus</label>
-                                            <input wire:model="organizationPeriod" type="text" class="form-control" id="helpInputTop">
+                                            <label for="organizationPeriod">Periode Mengurus</label>
+                                            <input wire:model="organizationPeriod" type="text" class="form-control" id="organizationPeriod">
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Posisi Mengurus</label>
-                                            <input wire:model="organizationPosition" type="text" class="form-control" id="helpInputTop">
+                                            <label for="organizationPosition">Posisi Mengurus</label>
+                                            <input wire:model="organizationPosition" type="text" class="form-control" id="organizationPosition">
                                         </fieldset>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl">
                                         <fieldset class="form-group">
-                                            <label for="basicTextarea">Keterangan</label>
-                                            <textarea wire:model="organizationDescription" class="form-control" id="basicTextarea" rows="3"></textarea>
+                                            <label for="organizationDescription">Keterangan</label>
+                                            <textarea wire:model="organizationDescription" class="form-control" id="organizationDescription" rows="3"></textarea>
                                         </fieldset>
                                     </div>
                                 </div>
@@ -535,8 +535,8 @@
                                 <div class="row">
                                     <div class="col-xl">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Nama Bakat</label>
-                                            <input wire:model="talentName" type="text" class="form-control" id="helpInputTop">
+                                            <label for="talentName">Nama Bakat</label>
+                                            <input wire:model="talentName" type="text" class="form-control" id="talentName">
                                         </fieldset>
                                     </div>
                                 </div>

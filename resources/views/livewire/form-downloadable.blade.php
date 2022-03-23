@@ -29,18 +29,18 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">KTP/ Paspor/ KK</label>
+                                            <label for="identity">KTP/ Paspor/ KK</label>
                                             <div class="custom-file">
-                                                <input wire:model="identity" type="file" class="custom-file-input" id="helpInputTop">
+                                                <input wire:model="identity" type="file" class="custom-file-input" id="identity">
                                                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                             </div>
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Surat Keterangan Lulus/Ijazah</label>
+                                            <label for="graduation">Surat Keterangan Lulus/Ijazah</label>
                                             <div class="custom-file">
-                                                <input wire:model="graduation" type="file" class="custom-file-input" id="helpInputTop">
+                                                <input wire:model="graduation" type="file" class="custom-file-input" id="graduation">
                                                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                             </div>
                                         </fieldset>
@@ -49,18 +49,18 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Bukti Diterima Di Perguruan Tinggi</label>
+                                            <label for="university">Bukti Diterima Di Perguruan Tinggi</label>
                                             <div class="custom-file">
-                                                <input wire:model="university" type="file" class="custom-file-input" id="helpInputTop">
+                                                <input wire:model="university" type="file" class="custom-file-input" id="university">
                                                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                             </div>
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
-                                            <label for="helpInputTop">Motivation Letter</label>
+                                            <label for="motivation">Motivation Letter</label>
                                             <div class="custom-file">
-                                                <input wire:model="motivation" type="file" class="custom-file-input" id="helpInputTop">
+                                                <input wire:model="motivation" type="file" class="custom-file-input" id="motivation">
                                                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                             </div>
                                         </fieldset>
