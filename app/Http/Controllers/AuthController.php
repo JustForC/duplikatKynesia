@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Hash;
 use App\Models\User;
 use Auth;
+use Validator;
 
 class AuthController extends Controller
 {
@@ -40,6 +41,26 @@ class AuthController extends Controller
 
     public function doRegister(Request $request)
     {
+        $message = 
+        [
+            'name.required' => "Nama Tidak Boleh Kosong",
+            'email.required' => "Email Tidak Boleh Kosong",
+            'email.unique' => "Email Sudah Terpakai",
+            'password.required' => "Password Harus Diisi",
+            'password.min' => "Password Minimal 8 Karakter",
+            'password.confirmed' => "Konfirmasi Password Salah",
+        ];
+
+        $validator = Validator::make($request->all(),[
+            'name' => ('required'),
+            'email' => ('required|unique:users'),
+            'password' => ('required|string|min:8|confirmed'),
+        ],$message);
+
+        if($validator->fails()){
+            return back()->withErrors($validator);
+        }
+
         User::create([
             'name' => $request->name,
             'email' => $request->email,

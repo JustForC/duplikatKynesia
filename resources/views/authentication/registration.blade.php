@@ -72,17 +72,20 @@
                                                     <div class="form-label-group">
                                                         <input type="text" id="inputName" class="form-control" placeholder="Name" name="name" required>
                                                         <label for="inputName">Name</label>
+                                                        @error('name') <h6 class="danger">{{ $message }}</h6> @enderror
                                                     </div>
                                                     <div class="form-label-group">
                                                         <input type="email" id="inputEmail" class="form-control" placeholder="Email" name="email" required>
                                                         <label for="inputEmail">Email</label>
+                                                        @error('email') <h6 class="danger">{{ $message }}</h6> @enderror
                                                     </div>
                                                     <div class="form-label-group">
                                                         <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
                                                         <label for="inputPassword">Password</label>
+                                                        @error('password') <h6 class="danger">{{ $message }}</h6> @enderror
                                                     </div>
                                                     <div class="form-label-group">
-                                                        <input type="password" id="inputConfPassword" class="form-control" placeholder="Confirm Password" name="confirm.password" required>
+                                                        <input type="password" id="inputConfPassword" class="form-control" placeholder="Confirm Password" name="password_confirmation" required>
                                                         <label for="inputConfPassword">Confirm Password</label>
                                                     </div>
                                                     <div class="form-group row">

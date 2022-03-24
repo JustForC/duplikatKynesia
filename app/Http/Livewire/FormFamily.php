@@ -160,12 +160,12 @@ class FormFamily extends Component
             $message = 
             [
                 'networthValue.required' => 'Penghasilan Orang Tua Tidak Boleh Kosong',
-                'networthValue.numerical' => 'Penghasilan Orang Tua Harus Berbentuk Angka',
+                'networthValue.numeric' => 'Penghasilan Orang Tua Harus Berbentuk Angka',
             ];
 
             $this->validate
             ([
-                'networthValue' => 'required|numerical'
+                'networthValue' => 'required|numeric'
             ],$message);
             
             $networth = Networth::create([

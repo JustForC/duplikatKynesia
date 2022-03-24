@@ -380,18 +380,23 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-xl-6">
-                                            <img class="img-fluid" src="{{ asset($downloadable->identityPath) }}">
+                                            <p class="card-text">Kartu Identitas</p>
+                                            <img class="img-fluid" src="{{asset($downloadable->idPath)}}">
                                         </div>
                                         <div class="col-xl-6">
-                                            <embed src="{{ asset($downloadable->graduationPath) }}" width=100% height=100%>
+                                            <p class="card-text">Ijazah</p>
+                                            <embed src="{{asset($downloadable->graduationPath)}}" width=100% height=92%>
                                         </div>
                                     </div>
+                                    <br>
                                     <div class="row">
                                         <div class="col-xl-6">
-                                            <img class="img-fluid" src="{{ asset($downloadable->universityPath) }}">
+                                            <p class="card-text">Bukti Diterima Universitas</p>
+                                            <img class="img-fluid" src="{{asset($downloadable->universityPath)}}">
                                         </div>
                                         <div class="col-xl-6">
-                                            <embed src="{{ asset($downloadable->motivationPath) }}" width=100% height=100%>
+                                            <p class="card-text">Motivation Letter</p>
+                                            <embed src="{{asset($downloadable->motivationPath)}}" width=100% height=92%>
                                         </div>
                                     </div>
                                 </div>
