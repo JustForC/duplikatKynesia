@@ -44,7 +44,7 @@
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
                                             <label for="fatherBirthdate">Tanggal Lahir</label>
-                                            <input wire:model="fatherBirthdate" type='date' class="form-control pickadate" id="fatherBirthdate">
+                                            <input wire:model="fatherBirthdate" type='date' class="form-control" id="fatherBirthdate">
                                             @error('fatherBirthdate') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
@@ -107,7 +107,7 @@
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
                                             <label for="motherBirthdate">Tanggal Lahir</label>
-                                            <input wire:model="motherBirthdate" type='date' class="form-control pickadate" id="motherBirthdate">
+                                            <input wire:model="motherBirthdate" type='date' class="form-control" id="motherBirthdate">
                                             @error('motherBirthdate') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
@@ -181,7 +181,7 @@
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
                                             <label for="childBirthdate">Tanggal Lahir</label>
-                                            <input wire:model="childBirthdate" type='date' class="form-control pickadate" id="childBirthdate">
+                                            <input wire:model="childBirthdate" type='date' class="form-control" id="childBirthdate">
                                             @error('childBirthdate') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>

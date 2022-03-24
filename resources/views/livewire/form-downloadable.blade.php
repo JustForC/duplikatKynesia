@@ -56,7 +56,7 @@
                                     @endif
                                     @if($identityPath != NULL)
                                     <div class="col-xl-6">
-                                        <img class="img-fluid" src="{{ $identityPath->temporaryUrl() }}">
+                                        <img class="img-fluid" src="{{ asset($identityPath) }}">
                                     </div>
                                     @endif
                                     @if($graduation != NULL  && $graduationPath == NULL)
@@ -66,7 +66,7 @@
                                     @endif
                                     @if($graduationPath != NULL)
                                     <div class="col-xl-6">
-                                        <embed src="{{ $graduationPath->temporaryUrl() }}" width=100% height=100%>
+                                        <embed src="{{ asset($graduationPath) }}" width=100% height=100%>
                                     </div>
                                     @endif
                                 </div>
@@ -101,7 +101,7 @@
                                     @endif
                                     @if($universityPath != NULL)
                                     <div class="col-xl-6">
-                                        <img class="img-fluid" src="{{ $universityPath->temporaryUrl() }}">
+                                        <img class="img-fluid" src="{{ asset($universityPath) }}">
                                     </div>
                                     @endif
                                     @if($motivation != NULL && $motivationPath == NULL)
@@ -111,7 +111,7 @@
                                     @endif
                                     @if($motivationPath != NULL)
                                     <div class="col-xl-6">
-                                        <embed src="{{ $motivationPath->temporaryUrl() }}" width=100% height=100%>
+                                        <embed src="{{ asset($motivationPath) }}" width=100% height=100%>
                                     </div>
                                     @endif
                                 </div>

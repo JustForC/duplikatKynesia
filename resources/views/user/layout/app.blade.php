@@ -25,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/components.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/themes/dark-layout.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/themes/semi-dark-layout.css')}}">
+    <!-- End: Theme CSS-->
 
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/core/menu/menu-types/vertical-menu.css')}}">
@@ -56,6 +57,7 @@
         <!-- END: Theme JS-->
 
         <!-- BEGIN: Page JS-->
+        <script src="{{asset('app-assets/js/scripts/pickers/dateTime/pick-a-datetime.js')}}"></script>
         <!-- END: Page JS-->
         @yield('javascript')
 </body>

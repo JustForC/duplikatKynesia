@@ -368,31 +368,41 @@
             </section>
             <!-- End Bakat -->
 
-            <!-- Pendidikan -->
+            <!-- Downloadable -->
             <section id="content-types">
                 <div class="row match-height">
                     <div class="col-xl">
                         <div class="card">
                             <div class="card-header mb-1">
-                                <h4 class="card-title">Card With Header And Footer</h4>
+                                <h4 class="card-title">Dokumen Tambahan</h4>
                             </div>
                             <div class="card-content">
                                 <div class="card-body">
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                        the card's content.</p>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <img class="img-fluid" src="{{ asset($downloadable->identityPath) }}">
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <embed src="{{ asset($downloadable->graduationPath) }}" width=100% height=100%>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <img class="img-fluid" src="{{ asset($downloadable->universityPath) }}">
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <embed src="{{ asset($downloadable->motivationPath) }}" width=100% height=100%>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-footer text-muted">
-                                <span class="float-left">3 hours ago</span>
-                                <span class="float-right">
-                                    <a href="#" class="card-link">Read More <i class="fa fa-angle-right"></i></a>
-                                </span>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- End Pendidikan -->
+            <!-- End Downloadable -->
         </div>
         </div>
     </div>
