@@ -110,13 +110,27 @@ class FormEducation extends Component
     {
         // Input SD
         if($this->elementaryId == NULL){
-            $this->validate([
+            $message = 
+            [
+                'elementaryName.required' => 'Nama Sekolah Tidak Boleh Kosong',
+                'elementaryProvince.required' => 'Provinsi Tidak Boleh Kosong',
+                'elementaryCity.required' => 'Kota Tidak Boleh Kosong',
+                'elementaryEnter.required' => 'Tahun Masuk Tidak Boleh Kosong',
+                'elementaryEnter.numeric' => 'Tahun Masuk Harus Berbentuk Angka',
+                'elementaryEnter.digits' => 'Tahun Masuk Harus 4 Digit',
+                'elementaryGraduate.required' => 'Tahun Lulus Tidak Boleh Kosong',
+                'elementaryGraduate.numeric' => 'Tahun Lulus Harus Berbentuk Angka',
+                'elementaryGraduate.digits' => 'Tahun Lulus Harus 4 Digit',
+            ];
+
+            $this->validate
+            ([
                 'elementaryName' => 'required',
                 'elementaryProvince' => 'required',
                 'elementaryCity' => 'required',
                 'elementaryEnter' => 'required|numeric|digits:4',
                 'elementaryGraduate' => 'required|numeric|digits:4',
-            ]);
+            ],$message);
 
             $elementary = Education::create([
                 'user_id' => Auth::user()->id,
@@ -145,13 +159,27 @@ class FormEducation extends Component
 
         // Input SMP
         if($this->juniorId == NULL){
-            $this->validate([
+            $message = 
+            [
+                'juniorName.required' => 'Nama Sekolah Tidak Boleh Kosong',
+                'juniorProvince.required' => 'Provinsi Tidak Boleh Kosong',
+                'juniorCity.required' => 'Kota Tidak Boleh Kosong',
+                'juniorEnter.required' => 'Tahun Masuk Tidak Boleh Kosong',
+                'juniorEnter.numeric' => 'Tahun Masuk Harus Berbentuk Angka',
+                'juniorEnter.digits' => 'Tahun Masuk Harus 4 Digit',
+                'juniorGraduate.required' => 'Tahun Lulus Tidak Boleh Kosong',
+                'juniorGraduate.numeric' => 'Tahun Lulus Harus Berbentuk Angka',
+                'juniorGraduate.digits' => 'Tahun Lulus Harus 4 Digit',
+            ];
+
+            $this->validate
+            ([
                 'juniorName' => 'required',
                 'juniorProvince' => 'required',
                 'juniorCity' => 'required',
                 'juniorEnter' => 'required|numeric|digits:4',
                 'juniorGraduate' => 'required|numeric|digits:4',
-            ]);
+            ], $message);
 
             $junior = Education::create([
                 'user_id' => Auth::user()->id,
@@ -180,14 +208,29 @@ class FormEducation extends Component
 
         // Input SMA
         if($this->highId == NULL){
-            $this->validate([
+            $message = 
+            [
+                'highName.required' => 'Nama Sekolah Tidak Boleh Kosong',
+                'highProvince.required' => 'Provinsi Tidak Boleh Kosong',
+                'highCity.required' => 'Kota Tidak Boleh Kosong',
+                'highEnter.required' => 'Tahun Masuk Tidak Boleh Kosong',
+                'highEnter.numeric' => 'Tahun Masuk Harus Berbentuk Angka',
+                'highEnter.digits' => 'Tahun Masuk Harus 4 Digit',
+                'highGraduate.required' => 'Tahun Lulus Tidak Boleh Kosong',
+                'highGraduate.numeric' => 'Tahun Lulus Harus Berbentuk Angka',
+                'highGraduate.digits' => 'Tahun Lulus Harus 4 Digit',
+                'highMajor.required' => 'Jurusan Tidak Boleh Kosong',
+            ];
+
+            $this->validate
+            ([
                 'highName' => 'required',
                 'highProvince' => 'required',
                 'highCity' => 'required',
                 'highMajor' => 'required',
                 'highEnter' => 'required|numeric|digits:4',
                 'highGraduate' => 'required|numeric|digits:4',
-            ]);
+            ], $message);
 
             $high = Education::create([
                 'user_id' => Auth::user()->id,
@@ -234,13 +277,23 @@ class FormEducation extends Component
     public function saveTraining()
     {
         if($this->trainingId == NULL){
-            $this->validate([
+            $message = 
+            [
+                'trainingName.required' => 'Nama Pelatihan Tidak Boleh Kosong',
+                'trainingYear.required' => 'Tahun Diselenggarakan Pelatihan Tidak Boleh Kosong',
+                'trainingPeriod.required' => 'Lama Pelatihan Tidak Boleh Kosong',
+                'trainingOrganizer.required' => 'Penyelenggara Tidak Boleh Kosong',
+                'trainingCertificate.required' => 'Harus Dipilih',
+            ];
+
+            $this->validate
+            ([
                 'trainingName' => 'required',
                 'trainingYear' => 'required',
                 'trainingPeriod' => 'required',
                 'trainingOrganizer' => 'required',
                 'trainingCertificate' => 'required',
-            ]);
+            ], $message);
 
             Training::create([
                 'user_id' => Auth::user()->id,
@@ -316,11 +369,19 @@ class FormEducation extends Component
     public function saveAchievement()
     {
         if($this->achievementId == NULL){
-            $this->validate([
+            $message = 
+            [
+                'achievementName.required' => 'Nama Prestasi Tidak Boleh Kosong',
+                'achievementOrganizer.required' => 'Penyelenggara Tidak Boleh Kosong',
+                'achievementLevel.required' => 'Tingkatan Tidak Boleh Kosong',
+            ];
+
+            $this->validate
+            ([
                 'achievementName' => 'required',
                 'achievementOrganizer' => 'required',
                 'achievementLevel' => 'required',
-            ]);
+            ],$message);
 
             Achievement::create([
                 'user_id' => Auth::user()->id,
@@ -392,13 +453,23 @@ class FormEducation extends Component
     public function saveLanguage()
     {
         if($this->languageId == NULL){
-            $this->validate([
+            $message = 
+            [
+                'languageName.required' => 'Bahasa Asing Tidak Boleh Kosong',
+                'languageTalk.required' => 'Kemampuan Berbicara Tidak Boleh Kosong',
+                'languageRead.required' => 'Kemampuan Membaca Tidak Boleh Kosong',
+                'languageWrite.required' => 'Kemampuan Menulis Tidak Boleh Kosong',
+                'languageListen.required' => 'Kemampuan Mendengar Tidak Boleh Kosong',
+            ];
+            
+            $this->validate
+            ([
                 'languageName' => 'required',
                 'languageTalk' => 'required',
                 'languageRead' => 'required',
                 'languageWrite' => 'required',
                 'languageListen' => 'required',
-            ]);
+            ],$message);
 
             Language::create([
                 'user_id' => Auth::user()->id,
@@ -475,12 +546,21 @@ class FormEducation extends Component
     public function saveOrganization()
     {
         if($this->organizationId == NULL){
-            $this->validate([
+            $message = 
+            [
+                'organizationName.required' => 'Nama Organisasi Tidak Boleh Kosong',
+                'organizationPeriod.required' => 'Periode Tidak Boleh Kosong',
+                'organizationPosition.required' => 'Jabatan Tidak Boleh Kosong',
+                'organizationDescription.required' => 'Deskripsi Tidak Boleh Kosong',
+            ];
+
+            $this->validate
+            ([
                 'organizationName' => 'required',
                 'organizationPeriod' => 'required',
                 'organizationPosition' => 'required',
                 'organizationDescription' => 'required',
-            ]);
+            ],$message);
             
             Organization::create([
                 'user_id' => Auth::user()->id,
@@ -551,9 +631,15 @@ class FormEducation extends Component
     public function saveTalent()
     {
         if($this->talentId == NULL){
-            $this->validate([
+            $message = 
+            [
+                'talentName.required' => 'Nama Bakat Tidak Boleh Kosong',
+            ];
+
+            $this->validate
+            ([
                 'talentName' => 'required',
-            ]);
+            ], $message);
             
             Talent::create([
                 'user_id' => Auth::user()->id,

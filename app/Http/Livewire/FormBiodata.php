@@ -205,7 +205,8 @@ class FormBiodata extends Component
                 'entranceType.required' => 'Jalur Masuk Tidak Boleh Kosong',
             ];
 
-            $this->validate([
+            $this->validate
+            ([
                 'university' => 'required',
                 'major' => 'required',
                 'entranceNumber' => 'required|between:10,14', 
