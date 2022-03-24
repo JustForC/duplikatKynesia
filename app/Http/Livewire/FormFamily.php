@@ -62,13 +62,23 @@ class FormFamily extends Component
     {
         // Father Input
         if($this->fatherId == NULL){
-            $this->validate([
+            $message = 
+            [
+                'fatherName.required' => 'Nama Ayah Tidak Boleh Kosong',
+                'fatherBirthdate.required' => 'Tanggal Lahir Tidak Boleh Kosong',
+                'fatherBirthplace.required' => 'Tempat Lahir Tidak Boleh Kosong',
+                'fatherEducation.required' => 'Pendidikan Terakhir Harus Diisi',
+                'fatherJob.required' => 'Pekerjaan Tidak Boleh Kosong',
+            ];
+
+            $this->validate
+            ([
                 'fatherName' => 'required',
                 'fatherBirthdate' => 'required',
                 'fatherBirthplace' => 'required',
                 'fatherEducation' => 'required',
                 'fatherJob' => 'required',
-            ]);
+            ],$message);
 
             
             $father = Family::create([
@@ -100,13 +110,23 @@ class FormFamily extends Component
 
         // Mother Input
         if($this->motherId == NULL){
-            $this->validate([
+            $message = 
+            [
+                'motherName.required' => 'Nama Ibu Tidak Boleh Kosong',
+                'motherBirthdate.required' => 'Tanggal Lahir Tidak Boleh Kosong',
+                'motherBirthplace.required' => 'Tempat Lahir Tidak Boleh Kosong',
+                'motherEducation.required' => 'Pendidikan Terakhir Harus Diisi',
+                'motherJob.required' => 'Pekerjaan Tidak Boleh Kosong',
+            ];
+
+            $this->validate
+            ([
                 'motherName' => 'required',
                 'motherBirthplace' => 'required',
                 'motherBirthdate' => 'required',
                 'motherEducation' => 'required',
                 'motherJob' => 'required',
-            ]);
+            ],$message);
             
             $mother = Family::create([
                 'user_id' => Auth::user()->id,
@@ -137,8 +157,15 @@ class FormFamily extends Component
 
         // Input Networth
         if($this->networthId == NULL){
-            $this->validate([
-                'networthValue' => 'required|number'
+            $message = 
+            [
+                'networthValue.required' => 'Penghasilan Orang Tua Tidak Boleh Kosong',
+                'networthValue.numerical' => 'Penghasilan Orang Tua Harus Berbentuk Angka',
+            ];
+
+            $this->validate
+            ([
+                'networthValue' => 'required|numerical'
             ]);
             
             $networth = Networth::create([
@@ -184,12 +211,21 @@ class FormFamily extends Component
     public function saveChild()
     {
         if($this->childId == NULL){
+            $message = 
+            [
+                'childName.required' => 'Nama Tidak Boleh Kosong',
+                'childBirthdate.required' => 'Tanggal Lahir Tidak Boleh Kosong',
+                'childBirthplace.required' => 'Tempat Lahir Tidak Boleh Kosong',
+                'childEducation.required' => 'Pendidikan Terakhir Harus Diisi',
+                'childJob.required' => 'Pekerjaan Tidak Boleh Kosong',
+                'childGender.required' => 'Jenis Kelamin Tidak Boleh Kosong',
+            ];
+
             $this->validate([
                 'childName' => 'required',
                 'childBirthplace' => 'required',
                 'childBirthdate' => 'required',
                 'childGender' => 'required',
-                'childName' => 'required',
                 'childJob' => 'required',
                 'childEducation' => 'required',
             ]);
