@@ -87,7 +87,7 @@
                         <div class="col-xl">
                             <fieldset class="form-group">
                                 <label for="helpInputTop">Tanggal Interview</label>
-                                <input wire:model="date" type="date" class="form-control" id="helpInputTop">
+                                <input wire:model="date" type="date" class="form-control format-picker" id="helpInputTop">
                                 @error('date') <h6 class="danger">{{ $message }}</h6> @enderror
                             </fieldset>
                         </div>

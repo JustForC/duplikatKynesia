@@ -49,6 +49,29 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    @if($identity != NULL && $identityPath == NULL)
+                                    <div class="col-xl-6">
+                                        <img class="img-fluid" src="{{ $identity->temporaryUrl() }}">
+                                    </div>
+                                    @endif
+                                    @if($identityPath != NULL)
+                                    <div class="col-xl-6">
+                                        <img class="img-fluid" src="{{ $identityPath->temporaryUrl() }}">
+                                    </div>
+                                    @endif
+                                    @if($graduation != NULL  && $graduationPath == NULL)
+                                    <div class="col-xl-6">
+                                        <embed src="{{ $graduation->temporaryUrl() }}" width=100% height=100%>
+                                    </div>
+                                    @endif
+                                    @if($graduationPath != NULL)
+                                    <div class="col-xl-6">
+                                        <embed src="{{ $graduationPath->temporaryUrl() }}" width=100% height=100%>
+                                    </div>
+                                    @endif
+                                </div>
+                                <br>
+                                <div class="row">
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
                                             <label for="university">Bukti Diterima Di Perguruan Tinggi</label>
@@ -69,6 +92,28 @@
                                             </div>
                                         </fieldset>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    @if($university != NULL && $universityPath == NULL)
+                                    <div class="col-xl-6">
+                                        <img class="img-fluid" src="{{ $university->temporaryUrl() }}">
+                                    </div>
+                                    @endif
+                                    @if($universityPath != NULL)
+                                    <div class="col-xl-6">
+                                        <img class="img-fluid" src="{{ $universityPath->temporaryUrl() }}">
+                                    </div>
+                                    @endif
+                                    @if($motivation != NULL && $motivationPath == NULL)
+                                    <div class="col-xl-6">
+                                        <embed src="{{ $motivation->temporaryUrl() }}" width=100% height=100%>
+                                    </div>
+                                    @endif
+                                    @if($motivationPath != NULL)
+                                    <div class="col-xl-6">
+                                        <embed src="{{ $motivationPath->temporaryUrl() }}" width=100% height=100%>
+                                    </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
