@@ -166,7 +166,7 @@ class FormFamily extends Component
             $this->validate
             ([
                 'networthValue' => 'required|numerical'
-            ]);
+            ],$message);
             
             $networth = Networth::create([
                 'user_id' => Auth::user()->id,
@@ -221,14 +221,15 @@ class FormFamily extends Component
                 'childGender.required' => 'Jenis Kelamin Tidak Boleh Kosong',
             ];
 
-            $this->validate([
+            $this->validate
+            ([
                 'childName' => 'required',
                 'childBirthplace' => 'required',
                 'childBirthdate' => 'required',
                 'childGender' => 'required',
                 'childJob' => 'required',
                 'childEducation' => 'required',
-            ]);
+            ],$message);
 
             Family::create([
                 'user_id' => Auth::user()->id,
