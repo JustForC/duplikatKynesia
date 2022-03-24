@@ -79,4 +79,9 @@ class AdminController extends Controller
             'downloadable' => $downloadable,
         ]);
     }
+
+    public function profile()
+    {
+        return view('admin.profile.profile');
+    }
 }

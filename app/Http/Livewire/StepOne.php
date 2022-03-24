@@ -62,6 +62,15 @@ class StepOne extends Component
 
     public function accept()
     {
+        if(strpos($this->link,'https://') !== false)
+        {
+            $this->link = $this->link;
+        }
+        else
+        {
+            $this->link = "https://".$this->link;
+        }
+
         User::find($this->userId)->update([
             'statusOne' => 'Lolos',
             'statusTwo' => 'Proses Seleksi',

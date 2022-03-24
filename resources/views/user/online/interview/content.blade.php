@@ -26,64 +26,32 @@
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
-                                    <h2 class = "info text-left">Selamat Datang di Portal Pendaftaran Kynesia Scholarship!</h2>
-                                    <h4 class="text-justify">Portal pendaftaran berisikan dua buah tahapan pendaftaran beasiswa yang perlu dilalui oleh pendaftar. Tahap pertama berisikan pengisian formulir administrasi dan tes online. Tahap kedua berisikan wawancara online. Pada tahap pertama pendaftar diminta untuk mengisi form administrasi yang dapat diakses melalui menu navigasi yang ada pada portal. Jika sudah, dapat dilanjut dengan mengikuti tes online. Setelah menyelesaikan tahap pertama pendaftar akan diseleksi untuk memasuki tahap dua. Hasil seleksi dapat dilihat pada status pendaftaran yang ada pada halaman home portal pendaftaran. Selanjutnya jika pendaftar lolos tahap pertama, pendaftaran dapat mengikuti tahap dua yaitu wawancara online. Selanjutnya pendaftar akan diseleksi kembali untuk menjadi penerima beasiswa.</h4>
-                                    <br>
-                                    <h2 class = "info text-left">Timeline Pendaftaran</h2>
+                                    <h2 class = "info text-left">Wawancara Online</h2>
                                     <div class="table-responsive">
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th class="text-center">Timeline Kegiatan</th>
-                                                    <th class="text-center">Waktu</th>
+                                                    <th class="text-center">Waktu Wawancara</th>
+                                                    <th class="text-center">Link Wawancara</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>Pendaftaran Beasiswa (Administrasi dan Tes Online)</td>
-                                                    <td>03-Jan-2022 s/d 14-Jan-2022</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Pengumuman Beasiswa Tahap 1 (Adminisrasi dan Tes Online)</td>
-                                                    <td>15-Jan-2022</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Proses Seleksi Tahap 2 (Wawancara Online)</td>
-                                                    <td>16-Jan-2022 s/d 23-Jan-2022</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Pengumuman Penerima Beasiswa</td>
-                                                    <td>24-Jan-2022</td>
+                                                    <td>{{date('d-M-Y' ,strtotime(Auth::user()->interviewDate))}}</td>
+                                                    <td><a href="{{Auth::user()->interviewLink}}" target = "_blank">{{Auth::user()->interviewLink}}</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
+
+                                    <h2 class = "info text-left">Aturan Wawancara</h2>
+                                    <h4 class="text-justify">1. Aturan Satu</h4>
+                                    <h4 class="text-justify">2. Aturan Dua</h4>
+                                    <h4 class="text-justify">3. Aturan Tiga</h4>
+                                    <h4 class="text-justify">4. Aturan Empat</h4>
+                                    <h4 class="text-justify">5. Aturan Lima</h4>
                                     <br>
-                                    <h2 class = "info text-left">Status Pendaftaran</h2>
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th class="text-center">Tahap Seleksi</th>
-                                                    <th class="text-center">Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Status 1</td>
-                                                    <td>{{Auth::user()->statusOne}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Status 2</td>
-                                                    @if(Auth::user()->statusTwo == NULL)
-                                                    <td>-</td>
-                                                    @elseif(Auth::user()->statusTwo != NULL)
-                                                    <td>{{Auth::user()->statusTwo}}</td>
-                                                    @endif
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+
                                 </div>
                             </div>
                             <div class="card-footer text-muted">

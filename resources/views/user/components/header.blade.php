@@ -8,7 +8,7 @@
                     <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                             <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">{{Auth::user()->name}}</span><span class="user-status">Pendaftar</span></div><span><img class="round" src="../../../app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"></span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="page-user-profile.html"><i class="feather icon-user"></i> Edit Profile</a>
+                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{route('user.profile')}}"><i class="feather icon-user"></i> Edit Profile</a>
                             <div class="dropdown-divider"></div><a class="dropdown-item" href="{{route('auth.logout')}}"><i class="feather icon-power"></i> Logout</a>
                         </div>
                     </li>

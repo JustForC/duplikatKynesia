@@ -138,6 +138,10 @@ class FormDownloadable extends Component
             ]);
 
             $this->downloadableId = $downloadable->id;
+            $this->identityPath = $downloadable->idPath;
+            $this->graduationPath = $downloadable->graduationPath;
+            $this->universityPath = $downloadable->universityPath;
+            $this->motivationPath = $downloadable->motivationPath;
         }
         else
         {
@@ -200,11 +204,16 @@ class FormDownloadable extends Component
                 'universityPath' => $universityPath,
                 'motivationPath' => $motivationPath,
             ]);
+
+            $this->identityPath = $downloadable->idPath;
+            $this->graduationPath = $downloadable->graduationPath;
+            $this->universityPath = $downloadable->universityPath;
+            $this->motivationPath = $downloadable->motivationPath;
         }
 
 
         User::find(Auth::user()->id)->update([
-            'statusOne' => "Proses Seleksi"
+            'statusOne' => "Melakukan Test"
         ]);
 
         $this->dispatchBrowserEvent('showAlert');
