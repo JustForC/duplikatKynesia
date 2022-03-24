@@ -34,6 +34,7 @@
                                         <fieldset class="form-group">
                                             <label for="elementaryName">Nama Sekolah</label>
                                             <input wire:model="elementaryName" type="text" class="form-control" id="elementaryName">
+                                            @error('elementaryName') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -78,12 +79,14 @@
                                                 <option value="Sumatra Selatan">Sumatra Selatan</option>
                                                 <option value="Sumatra Utara">Sumatra Utara</option>
                                             </select>
+                                            @error('elementaryProvince') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
                                             <label for="elementaryCity">Kota/Kabupaten</label>
                                             <input wire:model="elementaryCity" type="text" class="form-control" id="elementaryCity">
+                                            @error('elementaryCity') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -92,12 +95,14 @@
                                         <fieldset class="form-group">
                                             <label for="elementaryEnter">Tahun Masuk</label>
                                             <input wire:model="elementaryEnter" type="text" class="form-control" id="elementaryEnter">
+                                            @error('elementaryEnter') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
                                             <label for="elementaryGraduate">Tahun Lulus</label>
                                             <input wire:model="elementaryGraduate" type="text" class="form-control" id="elementaryGraduate">
+                                            @error('elementaryGraduate') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -117,6 +122,7 @@
                                         <fieldset class="form-group">
                                             <label for="juniorName">Nama Sekolah</label>
                                             <input wire:model="juniorName" type="text" class="form-control" id="juniorName">
+                                            @error('juniorName') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -161,12 +167,14 @@
                                                 <option value="Sumatra Selatan">Sumatra Selatan</option>
                                                 <option value="Sumatra Utara">Sumatra Utara</option>
                                             </select>
+                                            @error('juniorProvince') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
                                             <label for="juniorCity">Kota/Kabupaten</label>
                                             <input wire:model="juniorCity" type="text" class="form-control" id="juniorCity">
+                                            @error('juniorCity') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -175,12 +183,14 @@
                                         <fieldset class="form-group">
                                             <label for="juniorEnter">Tahun Masuk</label>
                                             <input wire:model="juniorEnter" type="text" class="form-control" id="juniorEnter">
+                                            @error('juniorEnter') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
                                             <label for="juniorGraduate">Tahun Lulus</label>
                                             <input wire:model="juniorGraduate" type="text" class="form-control" id="juniorGraduate">
+                                            @error('juniorGraduate') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -200,6 +210,7 @@
                                         <fieldset class="form-group">
                                             <label for="highName">Nama Sekolah</label>
                                             <input wire:model="highName" type="text" class="form-control" id="highName">
+                                            @error('highName') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
@@ -211,6 +222,7 @@
                                                 <option value="IPS">IPS</option>
                                                 <option value="Bahasa">Bahasa</option>
                                             </select>
+                                            @error('highMajor') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -255,12 +267,14 @@
                                                 <option value="Sumatra Selatan">Sumatra Selatan</option>
                                                 <option value="Sumatra Utara">Sumatra Utara</option>
                                             </select>
+                                            @error('highProvince') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
                                             <label for="highCity">Kota/Kabupaten</label>
                                             <input wire:model="highCity" type="text" class="form-control" id="highCity">
+                                            @error('highCity') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -269,12 +283,14 @@
                                         <fieldset class="form-group">
                                             <label for="highEnter">Tahun Masuk</label>
                                             <input wire:model="highEnter" type="text" class="form-control" id="highEnter">
+                                            @error('highEnter') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
                                             <label for="highGraduate">Tahun Lulus</label>
                                             <input wire:model="highGraduate" type="text" class="form-control" id="highGraduate">
+                                            @error('highGraduate') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -300,6 +316,7 @@
                                         <fieldset class="form-group">
                                             <label for="trainingName">Nama Pendidikan Non-Formal</label>
                                             <input wire:model="trainingName" type="text" class="form-control" id="trainingName">
+                                            @error('trainingName') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -308,12 +325,14 @@
                                         <fieldset class="form-group">
                                             <label for="trainingPeriod">Lama Pendidikan</label>
                                             <input wire:model="trainingPeriod" type="text" class="form-control" id="trainingPeriod">
+                                            @error('trainingPeriod') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
                                             <label for="trainingYear">Tahun Diselenggarakan</label>
                                             <input wire:model="trainingYear" type="text" class="form-control" id="trainingYear">
+                                            @error('trainingYear') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -322,6 +341,7 @@
                                         <fieldset class="form-group">
                                             <label for="trainingOrganizer">Penyelenggara</label>
                                             <input wire:model="trainingOrganizer" type="text" class="form-control" id="trainingOrganizer">
+                                            @error('trainingOrganizer') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
@@ -332,6 +352,7 @@
                                                 <option value="Ya">Ya</option>
                                                 <option value="Tidak">Tidak</option>
                                             </select>
+                                            @error('trainingCertificate') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -358,6 +379,7 @@
                                         <fieldset class="form-group">
                                             <label for="achievementName">Nama Prestasi</label>
                                             <input wire:model="achievementName" type="text" class="form-control" id="achievementName">
+                                            @error('achievementName') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -366,6 +388,7 @@
                                         <fieldset class="form-group">
                                             <label for="achievementOrganizer">Penyelenggara</label>
                                             <input wire:model="achievementOrganizer" type="text" class="form-control" id="achievementOrganizer">
+                                            @error('achievementOrganizer') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
@@ -377,6 +400,7 @@
                                                 <option value="Nasional">Nasional</option>
                                                 <option value="Internasional">Internasional</option>
                                             </select>
+                                            @error('achievementLevel') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -415,6 +439,7 @@
                                                 <option value="Russia">Russia</option>
                                                 <option value="Arab">Arab</option>
                                             </select>
+                                            @error('languageName') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -428,6 +453,7 @@
                                                 <option value="Intermediate">Intermediate</option>
                                                 <option value="Advance">Advance</option>
                                             </select>
+                                            @error('languageListen') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
@@ -439,6 +465,7 @@
                                                 <option value="Intermediate">Intermediate</option>
                                                 <option value="Advance">Advance</option>
                                             </select>
+                                            @error('languageRead') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -452,6 +479,7 @@
                                                 <option value="Intermediate">Intermediate</option>
                                                 <option value="Advance">Advance</option>
                                             </select>
+                                            @error('languageWrite') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
@@ -463,6 +491,7 @@
                                                 <option value="Intermediate">Intermediate</option>
                                                 <option value="Advance">Advance</option>
                                             </select>
+                                            @error('languageTalk') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -489,6 +518,7 @@
                                         <fieldset class="form-group">
                                             <label for="organizationName">Nama Organisasi</label>
                                             <input wire:model="organizationName" type="text" class="form-control" id="organizationName">
+                                            @error('organizationName') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -497,12 +527,14 @@
                                         <fieldset class="form-group">
                                             <label for="organizationPeriod">Periode Mengurus</label>
                                             <input wire:model="organizationPeriod" type="text" class="form-control" id="organizationPeriod">
+                                            @error('organizationPeriod') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
                                             <label for="organizationPosition">Posisi Mengurus</label>
                                             <input wire:model="organizationPosition" type="text" class="form-control" id="organizationPosition">
+                                            @error('organizationPosition') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -511,6 +543,7 @@
                                         <fieldset class="form-group">
                                             <label for="organizationDescription">Keterangan</label>
                                             <textarea wire:model="organizationDescription" class="form-control" id="organizationDescription" rows="3"></textarea>
+                                            @error('organizationDescription') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>
@@ -537,6 +570,7 @@
                                         <fieldset class="form-group">
                                             <label for="talentName">Nama Bakat</label>
                                             <input wire:model="talentName" type="text" class="form-control" id="talentName">
+                                            @error('talentName') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>
                                 </div>

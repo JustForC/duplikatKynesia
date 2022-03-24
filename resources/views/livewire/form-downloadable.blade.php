@@ -33,6 +33,7 @@
                                             <div class="custom-file">
                                                 <input wire:model="identity" type="file" class="custom-file-input" id="identity">
                                                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                @error('identity') <h6 class="danger">{{ $message }}</h6> @enderror
                                             </div>
                                         </fieldset>
                                     </div>
@@ -42,6 +43,7 @@
                                             <div class="custom-file">
                                                 <input wire:model="graduation" type="file" class="custom-file-input" id="graduation">
                                                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                @error('graduation') <h6 class="danger">{{ $message }}</h6> @enderror
                                             </div>
                                         </fieldset>
                                     </div>
@@ -53,6 +55,7 @@
                                             <div class="custom-file">
                                                 <input wire:model="university" type="file" class="custom-file-input" id="university">
                                                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                @error('university') <h6 class="danger">{{ $message }}</h6> @enderror
                                             </div>
                                         </fieldset>
                                     </div>
@@ -62,6 +65,7 @@
                                             <div class="custom-file">
                                                 <input wire:model="motivation" type="file" class="custom-file-input" id="motivation">
                                                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                @error('motivation') <h6 class="danger">{{ $message }}</h6> @enderror
                                             </div>
                                         </fieldset>
                                     </div>

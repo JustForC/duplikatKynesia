@@ -101,6 +101,13 @@ class FormDownloadable extends Component
     {
         if($this->downloadableId == NULL)
         {
+            $this->validate([
+                'identity'=> 'required|mimes:jpg,jpeg,png|max:20000',
+                'graduation'=> 'required|mimes:pdf|max:20000',
+                'university'=> 'required|mimes:jpg,jpeg,png|max:20000',
+                'motivation'=> 'required|mimes:pdf|max:20000',
+            ]);
+
             // Upload Identity
             $idDirectory = '/upload/identity/';
             $idName = time().'.'.$this->identity->extension();

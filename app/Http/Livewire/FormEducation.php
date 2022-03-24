@@ -110,6 +110,14 @@ class FormEducation extends Component
     {
         // Input SD
         if($this->elementaryId == NULL){
+            $this->validate([
+                'elementaryName' => 'required',
+                'elementaryProvince' => 'required',
+                'elementaryCity' => 'required',
+                'elementaryEnter' => 'required|numeric|digits:4',
+                'elementaryGraduate' => 'required|numeric|digits:4',
+            ]);
+
             $elementary = Education::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->elementaryName,
@@ -137,6 +145,14 @@ class FormEducation extends Component
 
         // Input SMP
         if($this->juniorId == NULL){
+            $this->validate([
+                'juniorName' => 'required',
+                'juniorProvince' => 'required',
+                'juniorCity' => 'required',
+                'juniorEnter' => 'required|numeric|digits:4',
+                'juniorGraduate' => 'required|numeric|digits:4',
+            ]);
+
             $junior = Education::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->juniorName,
@@ -164,6 +180,15 @@ class FormEducation extends Component
 
         // Input SMA
         if($this->highId == NULL){
+            $this->validate([
+                'highName' => 'required',
+                'highProvince' => 'required',
+                'highCity' => 'required',
+                'highMajor' => 'required',
+                'highEnter' => 'required|numeric|digits:4',
+                'highGraduate' => 'required|numeric|digits:4',
+            ]);
+
             $high = Education::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->highName,
@@ -209,6 +234,14 @@ class FormEducation extends Component
     public function saveTraining()
     {
         if($this->trainingId == NULL){
+            $this->validate([
+                'trainingName' => 'required',
+                'trainingYear' => 'required',
+                'trainingPeriod' => 'required',
+                'trainingOrganizer' => 'required',
+                'trainingCertificate' => 'required',
+            ]);
+
             Training::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->trainingName,
@@ -283,6 +316,12 @@ class FormEducation extends Component
     public function saveAchievement()
     {
         if($this->achievementId == NULL){
+            $this->validate([
+                'achievementName' => 'required',
+                'achievementOrganizer' => 'required',
+                'achievementLevel' => 'required',
+            ]);
+
             Achievement::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->achievementName,
@@ -340,7 +379,7 @@ class FormEducation extends Component
 
     // Language
     public function getLanguage($id)
-    {
+    {        
         $language = Language::find($id);
         $this->languageId = $language->id;
         $this->languageName = $language->language;
@@ -353,6 +392,14 @@ class FormEducation extends Component
     public function saveLanguage()
     {
         if($this->languageId == NULL){
+            $this->validate([
+                'languageName' => 'required',
+                'languageTalk' => 'required',
+                'languageRead' => 'required',
+                'languageWrite' => 'required',
+                'languageListen' => 'required',
+            ]);
+
             Language::create([
                 'user_id' => Auth::user()->id,
                 'language' => $this->languageName,
@@ -428,6 +475,13 @@ class FormEducation extends Component
     public function saveOrganization()
     {
         if($this->organizationId == NULL){
+            $this->validate([
+                'organizationName' => 'required',
+                'organizationPeriod' => 'required',
+                'organizationPosition' => 'required',
+                'organizationDescription' => 'required',
+            ]);
+            
             Organization::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->organizationName,
@@ -497,6 +551,10 @@ class FormEducation extends Component
     public function saveTalent()
     {
         if($this->talentId == NULL){
+            $this->validate([
+                'talentName' => 'required',
+            ]);
+            
             Talent::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->talentName,

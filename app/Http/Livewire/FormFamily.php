@@ -62,6 +62,15 @@ class FormFamily extends Component
     {
         // Father Input
         if($this->fatherId == NULL){
+            $this->validate([
+                'fatherName' => 'required',
+                'fatherBirthdate' => 'required',
+                'fatherBirthplace' => 'required',
+                'fatherEducation' => 'required',
+                'fatherJob' => 'required',
+            ]);
+
+            
             $father = Family::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->fatherName,
@@ -91,6 +100,14 @@ class FormFamily extends Component
 
         // Mother Input
         if($this->motherId == NULL){
+            $this->validate([
+                'motherName' => 'required',
+                'motherBirthplace' => 'required',
+                'motherBirthdate' => 'required',
+                'motherEducation' => 'required',
+                'motherJob' => 'required',
+            ]);
+            
             $mother = Family::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->motherName,
@@ -120,6 +137,10 @@ class FormFamily extends Component
 
         // Input Networth
         if($this->networthId == NULL){
+            $this->validate([
+                'networthValue' => 'required|number'
+            ]);
+            
             $networth = Networth::create([
                 'user_id' => Auth::user()->id,
                 'networth' => $this->networthValue
@@ -163,6 +184,16 @@ class FormFamily extends Component
     public function saveChild()
     {
         if($this->childId == NULL){
+            $this->validate([
+                'childName' => 'required',
+                'childBirthplace' => 'required',
+                'childBirthdate' => 'required',
+                'childGender' => 'required',
+                'childName' => 'required',
+                'childJob' => 'required',
+                'childEducation' => 'required',
+            ]);
+
             Family::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->childName,

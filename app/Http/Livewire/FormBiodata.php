@@ -70,6 +70,28 @@ class FormBiodata extends Component
     public function save()
     {
         if($this->biodataId == NULL){
+            $this->validate([
+                'name' => 'required',
+                'nickname' => 'required',
+                'gender' => 'required',
+                'birthdate' => 'required',
+                'birthplace' => 'required',
+                'telephone' => 'required|between:10,13',
+                'email' => 'required',
+                'idType' => 'required',
+                'idNumber' => 'required|between:10,16',
+                'address' => 'required',
+                'district' => 'required',
+                'code' => 'required|digits:5',
+                'city' => 'required',
+                'province' => 'required',
+                'addressLiving' => 'required',
+                'districtLiving' => 'required',
+                'codeLiving' => 'required|digits:5',
+                'cityLiving' => 'required',
+                'provinceLiving' => 'required',
+            ]);
+
             $biodata = Biodata::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->name,
@@ -146,6 +168,13 @@ class FormBiodata extends Component
         }
 
         if($this->universityId == NULL){
+            $this->validate([
+                'university' => 'required',
+                'major' => 'required',
+                'entranceNumber' => 'required|between:10,14', 
+                'entranceType' => 'required', 
+            ]);
+
             $university = University::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->university,
