@@ -1,7 +1,7 @@
 <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
     <div class="navbar-header">
         <ul class="nav navbar-nav flex-row">
-            <li class="nav-item mr-auto"><a class="navbar-brand" href="../../../html/ltr/vertical-collapsed-menu-template/index.html">
+            <li class="nav-item mr-auto"><a class="navbar-brand" href="{{route('admin.homepage')}}">
                 <div class="brand-logo">
                     <img src="{{asset('image/logo.png')}}" class="img-fluid" alt="Brand logo">
                 </div>

@@ -70,7 +70,35 @@ class FormBiodata extends Component
     public function save()
     {
         if($this->biodataId == NULL){
-            $this->validate([
+            $message = 
+            [
+                'name.required' => 'Nama Tidak Boleh Kosong',
+                'nickname.required' => 'Panggilan Tidak Boleh Kosong',
+                'gender.required' => 'Jenis Kelamin Tidak Boleh Kosong',
+                'birthdate.required' => 'Tanggal Lahir Tidak Boleh Kosong',
+                'birthplace.required' => 'Tempat Lahir Tidak Boleh Kosong',
+                'telephone.required' => 'Nomor Telephone Tidak Boleh Kosong',
+                'telephone.between' => 'Nomor Telephone Antara 10 Sampai 13 Digit',
+                'email.required' => 'Email Tidak Boleh Kosong',
+                'idType.required' => 'Pilih Tanda Pengenal',
+                'idNumber.required' => 'Nomor Identitas Tidak Boleh Kosong',
+                'idNumber.between' => 'Nomor Identitas Antara 10 Sampai 16 Digit',
+                'address.required' => 'Alamat Tidak Boleh Kosong',
+                'district.required' => 'Kecamatan Tidak Boleh Kosong',
+                'code.required' => 'Kode Pos Tidak Boleh Kosong',
+                'code.digits' => 'Kode Pos Harus 5 Digit',
+                'city.required' => 'Kota Tidak Boleh Kosong',
+                'province.required' => 'Provinsi Tidak Boleh Kosong',  
+                'addressLiving.required' => 'Alamat Tidak Boleh Kosong',
+                'districtLiving.required' => 'Kecamatan Tidak Boleh Kosong',
+                'codeLiving.required' => 'Kode Pos Tidak Boleh Kosong',
+                'codeLiving.digits' => 'Kode Pos Harus 5 Digit',
+                'cityLiving.required' => 'Kota Tidak Boleh Kosong',
+                'provinceLiving.required' => 'Provinsi Tidak Boleh Kosong',  
+            ];
+
+            $this->validate
+            ([
                 'name' => 'required',
                 'nickname' => 'required',
                 'gender' => 'required',
@@ -90,7 +118,7 @@ class FormBiodata extends Component
                 'codeLiving' => 'required|digits:5',
                 'cityLiving' => 'required',
                 'provinceLiving' => 'required',
-            ]);
+            ], $message);
 
             $biodata = Biodata::create([
                 'user_id' => Auth::user()->id,
@@ -168,12 +196,21 @@ class FormBiodata extends Component
         }
 
         if($this->universityId == NULL){
+            $message = 
+            [
+                'university.required' => 'Nama Universitas Tidak Boleh Kosong',
+                'major.required' => 'Jurusan Tidak Boleh Kosong',
+                'entranceNumber.required' => 'Nomor Masuk Tidak Boleh Kosong',
+                'entranceNumber.between' => 'Nomor Masuk Antara 10 Sampai 14 Digit',
+                'entranceType.required' => 'Jalur Masuk Tidak Boleh Kosong',
+            ];
+
             $this->validate([
                 'university' => 'required',
                 'major' => 'required',
                 'entranceNumber' => 'required|between:10,14', 
                 'entranceType' => 'required', 
-            ]);
+            ], $message);
 
             $university = University::create([
                 'user_id' => Auth::user()->id,
