@@ -13,27 +13,27 @@
     <div class="shadow-bottom"></div>
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" nav-item"><a href="{{route('user.homepage')}}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Homepage</span></a>
+            <li class=" nav-item @if(request()->is('user')) active @endif"><a href="{{route('user.homepage')}}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Homepage</span></a>
             </li>
             <li class=" navigation-header"><span>Pendaftaran</span>
             </li>
             <li class=" nav-item"><a href="#"><i class="feather icon-clipboard"></i><span class="menu-title">Formulir</span></a>
                 <ul class="menu-content">
-                    <li><a href="{{route('user.biodata')}}"><i class="feather icon-circle"></i><span class="menu-item">Biodata</span></a>
+                    <li class = "@if(request()->is('user/biodata')) active @endif"><a href="{{route('user.biodata')}}"><i class="feather icon-circle"></i><span class="menu-item">Biodata</span></a>
                     </li>
-                    <li><a href="{{route('user.family')}}"><i class="feather icon-circle"></i><span class="menu-item">Keluarga</span></a>
+                    <li class = "@if(request()->is('user/family')) active @endif"><a href="{{route('user.family')}}"><i class="feather icon-circle"></i><span class="menu-item">Keluarga</span></a>
                     </li>
-                    <li><a href="{{route('user.education')}}"><i class="feather icon-circle"></i><span class="menu-item">Pendidikan</span></a>
+                    <li class = "@if(request()->is('user/education')) active @endif"><a href="{{route('user.education')}}"><i class="feather icon-circle"></i><span class="menu-item">Pendidikan</span></a>
                     </li>
-                    <li><a href="{{route('user.downloadable')}}"><i class="feather icon-circle"></i><span class="menu-item">Unduhan</span></a>
+                    <li class = "@if(request()->is('user/downloadable')) active @endif"><a href="{{route('user.downloadable')}}"><i class="feather icon-circle"></i><span class="menu-item">Unduhan</span></a>
                     </li>
                 </ul>
             </li>
             <li class=" nav-item"><a href="#"><i class="feather icon-file-text"></i><span class="menu-title">Tahapan Lanjut</span></a>
                 <ul class="menu-content">
-                    <li><a href="{{route('user.test')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List">Test Online</span></a>
+                    <li class = "@if(request()->is('user/test')) active @endif"><a href="{{route('user.test')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List">Test Online</span></a>
                     </li>
-                    <li><a href="{{route('user.interview')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Wawancara Online</span></a>
+                    <li class = "@if(request()->is('user/interview')) active @endif"><a href="{{route('user.interview')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Wawancara Online</span></a>
                     </li>
                 </ul>
             </li>

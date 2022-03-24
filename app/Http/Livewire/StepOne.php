@@ -62,6 +62,18 @@ class StepOne extends Component
 
     public function accept()
     {
+        $message = 
+        [
+            'link.required' => 'Link Wawancara Perlu Diisi',
+            'date.required' => 'Tanggal Wawancara Perlu Diisi'
+        ];
+
+        $this->validate
+        ([
+            "link" => "required",
+            'date' => 'required',
+        ], $message);
+
         if(strpos($this->link,'https://') !== false)
         {
             $this->link = $this->link;

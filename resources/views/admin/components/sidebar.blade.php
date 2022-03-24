@@ -13,17 +13,17 @@
     <div class="shadow-bottom"></div>
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" nav-item"><a href="{{route('admin.homepage')}}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Homepage</span></a>
+            <li class=" nav-item @if(request()->is('admin')) active @endif"><a href="{{route('admin.homepage')}}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Homepage</span></a>
             </li>
             <li class=" navigation-header"><span>Seleksi</span>
             </li>
             <li class=" nav-item"><a href="#"><i class="feather icon-user"></i><span class="menu-title">Tahap</span></a>
                 <ul class="menu-content">
-                    <li><a href="{{route('admin.stepOne')}}"><i class="feather icon-circle"></i><span class="menu-item">Tahap 1</span></a>
+                    <li class = "@if(request()->is('admin/stepOne')) active @endif"><a href="{{route('admin.stepOne')}}"><i class="feather icon-circle"></i><span class="menu-item">Tahap 1</span></a>
                     </li>
-                    <li><a href="{{route('admin.stepTwo')}}"><i class="feather icon-circle"></i><span class="menu-item">Tahap 2</span></a>
+                    <li class = "@if(request()->is('admin/stepTwo')) active @endif"><a href="{{route('admin.stepTwo')}}"><i class="feather icon-circle"></i><span class="menu-item">Tahap 2</span></a>
                     </li>
-                    <li><a href="{{route('admin.rejected')}}"><i class="feather icon-circle"></i><span class="menu-item">Ditolak</span></a>
+                    <li class = "@if(request()->is('admin/rejected')) active @endif"><a href="{{route('admin.rejected')}}"><i class="feather icon-circle"></i><span class="menu-item">Ditolak</span></a>
                     </li>
                 </ul>
             </li>

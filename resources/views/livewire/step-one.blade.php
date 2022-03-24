@@ -79,6 +79,7 @@
                             <fieldset class="form-group">
                                 <label for="helpInputTop">Link Interview</label>
                                 <input wire:model="link" type="text" class="form-control" id="helpInputTop">
+                                @error('link') <h6 class="danger">{{ $message }}</h6> @enderror
                             </fieldset>
                         </div>
                     </div>
@@ -87,6 +88,7 @@
                             <fieldset class="form-group">
                                 <label for="helpInputTop">Tanggal Interview</label>
                                 <input wire:model="date" type="date" class="form-control" id="helpInputTop">
+                                @error('date') <h6 class="danger">{{ $message }}</h6> @enderror
                             </fieldset>
                         </div>
                     </div>
