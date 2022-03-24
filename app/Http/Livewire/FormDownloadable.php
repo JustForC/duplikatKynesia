@@ -101,12 +101,29 @@ class FormDownloadable extends Component
     {
         if($this->downloadableId == NULL)
         {
-            $this->validate([
+            $message =
+            [
+                'identity.required' => 'Foto Identitas Tidak Boleh Kosong',
+                'identity.mimes' => 'Format File Harus jpg/jpeg/png',
+                'identity.max' => 'Ukuran File Maksimal 20Mb',
+                'university.required' => 'Bukti Diterima Universitas Tidak Boleh Kosong',
+                'university.mimes' => 'Format File Harus jpg/jpeg/png',
+                'university.max' => 'Ukuran File Maksimal 20Mb',
+                'graduation.required' => 'Ijazah Tidak Boleh Kosong',
+                'graduation.mimes' => 'Format File Harus pdf',
+                'graduation.max' => 'Ukuran File Maksimal 20Mb',
+                'motivation.required' => 'Motivation Letter Tidak Boleh Kosong',
+                'motivation.mimes' => 'Format File Harus pdf',
+                'motivation.max' => 'Ukuran File Maksimal 20Mb',
+            ];
+
+            $this->validate
+            ([
                 'identity'=> 'required|mimes:jpg,jpeg,png|max:20000',
                 'graduation'=> 'required|mimes:pdf|max:20000',
                 'university'=> 'required|mimes:jpg,jpeg,png|max:20000',
                 'motivation'=> 'required|mimes:pdf|max:20000',
-            ]);
+            ], $message);
 
             // Upload Identity
             $idDirectory = '/upload/identity/';
