@@ -26,7 +26,7 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <br>
-                                        <button class="btn btn-success">Import</button>
+                                        <button wire:click="saveExcel()" class="btn btn-success">Import</button>
                                     </div>
                                 </div>
                                 <fieldset class="col-sm-1 form-group float-left">

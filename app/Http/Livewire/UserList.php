@@ -16,6 +16,12 @@ class UserList extends Component
     public $sortName = "id";
     public $paginationKey = 2;
 
+    public $excel;
+
+    protected $listeners = [
+        'refreshTable' => '$refresh',
+    ];
+
     public function render()
     {
         $users = User::where('name', 'LIKE', '%' . $this->searchKey . '%')
@@ -24,8 +30,20 @@ class UserList extends Component
             ->orWhere('statusTwo', 'LIKE', '%' . $this->searchKey . '%')
             ->orderBy($this->sortName, $this->sortType)
             ->paginate($this->paginationKey);
+
         return view('livewire.user-list')->with([
             'users' => $users,
         ]);
+    }
+
+    public function saveExcel()
+    {
+        $this->clearInput();
+        $this->emit('refreshTable');
+    }
+
+    public function clearInput()
+    {
+        $this->excel = null;
     }
 }
