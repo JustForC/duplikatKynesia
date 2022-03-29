@@ -83,4 +83,9 @@ class AdminController extends Controller
     {
         return view('admin.profile.profile');
     }
+
+    public function notifications()
+    {
+        return view('admin.notifications.notifications');
+    }
 }

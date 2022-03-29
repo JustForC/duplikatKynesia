@@ -29,5 +29,6 @@ class NotificationAdmin extends Component
         ]);
 
         $this->emit('refreshNotification');
+        $this->emit('refreshTableNotification');
     }
 }
