@@ -2,17 +2,16 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
-use Livewire\WithFileUploads;
-use Auth;
 use App\Models\Biodata;
-use App\Models\University;
+use App\Models\Downloadable;
+use App\Models\Education;
 use App\Models\Family;
 use App\Models\Networth;
-use App\Models\Education;
-use App\Models\Downloadable;
+use App\Models\University;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class FormDownloadable extends Component
 {
@@ -21,12 +20,12 @@ class FormDownloadable extends Component
     public $identity, $graduation, $university, $motivation;
     public $identityPath, $graduationPath, $universityPath, $motivationPath;
     public $downloadableId;
+    public $identityName, $graduationName, $universityName, $motivationName;
 
     public function mount()
     {
-        if(Downloadable::where('user_id','=',Auth::user()->id)->exists())
-        {
-            $downloadable = Downloadable::where('user_id','=',Auth::user()->id)->first();
+        if (Downloadable::where('user_id', '=', Auth::user()->id)->exists()) {
+            $downloadable = Downloadable::where('user_id', '=', Auth::user()->id)->first();
 
             $this->downloadableId = $downloadable->id;
             $this->identityPath = $downloadable->idPath;
@@ -41,53 +40,43 @@ class FormDownloadable extends Component
         // Check previous form
 
         // Check Biodata
-        if(Biodata::where('user_id','=',Auth::user()->id)->exists() == FALSE)
-        {
+        if (Biodata::where('user_id', '=', Auth::user()->id)->exists() == false) {
             return redirect()->route('user.biodata');
         }
         // Check University
-        elseif(University::where('user_id','=',Auth::user()->id)->exists() == FALSE)
-        {
+        elseif (University::where('user_id', '=', Auth::user()->id)->exists() == false) {
             return redirect()->route('user.biodata');
         }
         // Check Father
-        elseif(Family::where('user_id','=',Auth::user()->id)->where('status','=','Father')->exists() == FALSE)
-        {
+        elseif (Family::where('user_id', '=', Auth::user()->id)->where('status', '=', 'Father')->exists() == false) {
             return redirect()->route('user.family');
         }
         // Check Mother
-        elseif(Family::where('user_id','=',Auth::user()->id)->where('status','=','Mother')->exists() == FALSE)
-        {
+        elseif (Family::where('user_id', '=', Auth::user()->id)->where('status', '=', 'Mother')->exists() == false) {
             return redirect()->route('user.family');
         }
         // Check Children
-        elseif(Family::where('user_id','=',Auth::user()->id)->where('status','=','Children')->exists() == FALSE)
-        {
+        elseif (Family::where('user_id', '=', Auth::user()->id)->where('status', '=', 'Children')->exists() == false) {
             return redirect()->route('user.family');
         }
         // Check Networth
-        elseif(Networth::where('user_id','=',Auth::user()->id)->exists() == FALSE)
-        {
+        elseif (Networth::where('user_id', '=', Auth::user()->id)->exists() == false) {
             return redirect()->route('user.family');
         }
         // Check Elementary
-        elseif(Education::where('user_id','=',Auth::user()->id)->where('level','=','SD')->exists() == FALSE)
-        {
+        elseif (Education::where('user_id', '=', Auth::user()->id)->where('level', '=', 'SD')->exists() == false) {
             return redirect()->route('user.education');
         }
         // Check Junior
-        elseif(Education::where('user_id','=',Auth::user()->id)->where('level','=','SMP')->exists() == FALSE)
-        {
+        elseif (Education::where('user_id', '=', Auth::user()->id)->where('level', '=', 'SMP')->exists() == false) {
             return redirect()->route('user.education');
         }
         // Check High
-        elseif(Education::where('user_id','=',Auth::user()->id)->where('level','=','SMA')->exists() == FALSE)
-        {
+        elseif (Education::where('user_id', '=', Auth::user()->id)->where('level', '=', 'SMA')->exists() == false) {
             return redirect()->route('user.education');
         }
         // Go Save Data
-        else
-        {
+        else {
             $this->save();
         }
     }
@@ -99,10 +88,9 @@ class FormDownloadable extends Component
 
     public function save()
     {
-        if($this->downloadableId == NULL)
-        {
+        if ($this->downloadableId == null) {
             $message =
-            [
+                [
                 'identity.required' => 'Foto Identitas Tidak Boleh Kosong',
                 'identity.mimes' => 'Format File Harus jpg/jpeg/png',
                 'identity.max' => 'Ukuran File Maksimal 20Mb',
@@ -118,38 +106,38 @@ class FormDownloadable extends Component
             ];
 
             $this->validate
-            ([
-                'identity'=> 'required|mimes:jpg,jpeg,png|max:20000',
-                'graduation'=> 'required|mimes:pdf|max:20000',
-                'university'=> 'required|mimes:jpg,jpeg,png|max:20000',
-                'motivation'=> 'required|mimes:pdf|max:20000',
+                ([
+                'identity' => 'required|mimes:jpg,jpeg,png|max:20000',
+                'graduation' => 'required|mimes:pdf|max:20000',
+                'university' => 'required|mimes:jpg,jpeg,png|max:20000',
+                'motivation' => 'required|mimes:pdf|max:20000',
             ], $message);
 
             // Upload Identity
             $idDirectory = '/upload/identity/';
-            $idName = time().'.'.$this->identity->extension();
-            $this->identity->storeAs('public'.$idDirectory, $idName);
+            $idName = time() . '.' . $this->identity->extension();
+            $this->identity->storeAs('public' . $idDirectory, $idName);
             $identityPath = 'storage' . $idDirectory . $idName;
             // End Upload Identity
 
             // Upload Graduation
             $graduationDirectory = '/upload/graduation/';
-            $graduationName = time().'.'.$this->graduation->extension();
-            $this->graduation->storeAs('public'.$graduationDirectory, $graduationName);
+            $graduationName = time() . '.' . $this->graduation->extension();
+            $this->graduation->storeAs('public' . $graduationDirectory, $graduationName);
             $graduationPath = 'storage' . $graduationDirectory . $graduationName;
             // End Upload Graduation
 
             // Upload University
             $universityDirectory = '/upload/university/';
-            $universityName = time().'.'.$this->university->extension();
-            $this->university->storeAs('public'.$universityDirectory, $universityName);
+            $universityName = time() . '.' . $this->university->extension();
+            $this->university->storeAs('public' . $universityDirectory, $universityName);
             $universityPath = 'storage' . $universityDirectory . $universityName;
             // End Upload University
 
             // Upload Motivation
             $motivationDirectory = '/upload/motivation/';
-            $motivationName = time().'.'.$this->motivation->extension();
-            $this->motivation->storeAs('public'.$motivationDirectory, $motivationName);
+            $motivationName = time() . '.' . $this->motivation->extension();
+            $this->motivation->storeAs('public' . $motivationDirectory, $motivationName);
             $motivationPath = 'storage' . $motivationDirectory . $motivationName;
             // End Upload Motivation
 
@@ -166,58 +154,52 @@ class FormDownloadable extends Component
             $this->graduationPath = $downloadable->graduationPath;
             $this->universityPath = $downloadable->universityPath;
             $this->motivationPath = $downloadable->motivationPath;
-        }
-        else
-        {
+        } else {
             // Check ID
-            if(isset($this->identity))
-            {
+            if (isset($this->identity)) {
+                $this->identityName = substr($this->identityPath, 24);
+                unlink(storage_path('app/public/upload/identity/' . $this->identityName));
                 $idDirectory = '/upload/identity/';
-                $idName = time().'.'.$this->identity->extension();
-                $this->identity->storeAs('public'.$idDirectory, $idName);
+                $idName = time() . '.' . $this->identity->extension();
+                $this->identity->storeAs('public' . $idDirectory, $idName);
                 $identityPath = 'storage' . $idDirectory . $idName;
-            }
-            else
-            {
+            } else {
                 $identityPath = $this->identityPath;
             }
 
             // Check Graduation
-            if(isset($this->graduation))
-            {
+            if (isset($this->graduation)) {
+                $this->graduationName = substr($this->graduationPath, 26);
+                unlink(storage_path('app/public/upload/graduation/' . $this->graduationName));
                 $graduationDirectory = '/upload/graduation/';
-                $graduationName = time().'.'.$this->graduation->extension();
-                $this->graduation->storeAs('public'.$graduationDirectory, $graduationName);
+                $graduationName = time() . '.' . $this->graduation->extension();
+                $this->graduation->storeAs('public' . $graduationDirectory, $graduationName);
                 $graduationPath = 'storage' . $graduationDirectory . $graduationName;
-            }
-            else
-            {
+            } else {
                 $graduationPath = $this->graduationPath;
             }
 
             // Check University
-            if(isset($this->university))
-            {
+            if (isset($this->university)) {
+                $this->universityName = substr($this->universityPath, 26);
+                unlink(storage_path('app/public/upload/university/' . $this->universityName));
                 $universityDirectory = '/upload/university/';
-                $universityName = time().'.'.$this->university->extension();
-                $this->university->storeAs('public'.$universityDirectory, $universityName);
+                $universityName = time() . '.' . $this->university->extension();
+                $this->university->storeAs('public' . $universityDirectory, $universityName);
                 $universityPath = 'storage' . $universityDirectory . $universityName;
-            }
-            else
-            {
+            } else {
                 $universityPath = $this->universityPath;
             }
 
             // Check Motivation
-            if(isset($this->motivation))
-            {
+            if (isset($this->motivation)) {
+                $this->motivationName = substr($this->motivationPath, 26);
+                unlink(storage_path('app/public/upload/motivation/' . $this->motivationName));
                 $motivationDirectory = '/upload/motivation/';
-                $motivationName = time().'.'.$this->motivation->extension();
-                $this->motivation->storeAs('public'.$motivationDirectory, $motivationName);
+                $motivationName = time() . '.' . $this->motivation->extension();
+                $this->motivation->storeAs('public' . $motivationDirectory, $motivationName);
                 $motivationPath = 'storage' . $motivationDirectory . $motivationName;
-            }
-            else
-            {
+            } else {
                 $motivationPath = $this->motivationPath;
             }
 
@@ -229,15 +211,16 @@ class FormDownloadable extends Component
                 'motivationPath' => $motivationPath,
             ]);
 
+            $downloadable = Downloadable::where('user_id', '=', Auth::user()->id)->first();
+
             $this->identityPath = $downloadable->idPath;
             $this->graduationPath = $downloadable->graduationPath;
             $this->universityPath = $downloadable->universityPath;
             $this->motivationPath = $downloadable->motivationPath;
         }
 
-
         User::find(Auth::user()->id)->update([
-            'statusOne' => "Melakukan Test"
+            'statusOne' => "Melakukan Test",
         ]);
 
         $this->dispatchBrowserEvent('showAlert');
@@ -246,9 +229,9 @@ class FormDownloadable extends Component
 
     public function clearInput()
     {
-        $this->identity = NULL;
-        $this->graduation = NULL;
-        $this->university = NULL;
-        $this->motivation = NULL;
+        $this->identity = null;
+        $this->graduation = null;
+        $this->university = null;
+        $this->motivation = null;
     }
 }

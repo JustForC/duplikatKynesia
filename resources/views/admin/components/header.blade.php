@@ -5,6 +5,7 @@
                 <div class="mr-auto float-left bookmark-wrapper d-flex align-items-center">
                 </div>
                 <ul class="nav navbar-nav float-right">
+                    <livewire:notification-admin></livewire:notification-admin>
                     <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                             <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">{{Auth::user()->name}}</span><span class="user-status">Admin</span></div><span><img class="round" src="../../../app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"></span>
                         </a>

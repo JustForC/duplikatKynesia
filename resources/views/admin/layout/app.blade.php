@@ -38,6 +38,7 @@
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!-- END: Custom CSS-->
     @livewireStyles
 
@@ -46,6 +47,9 @@
         @yield('content')
 
         @livewireScripts
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <script src="{{asset('js/app.js')}}"></script>
+        {{-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> --}}
         <!-- BEGIN: Vendor JS-->
         <script src="{{asset('app-assets/vendors/js/vendors.min.js')}}"></script>
         <!-- BEGIN Vendor JS-->

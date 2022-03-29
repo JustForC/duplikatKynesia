@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
-use Auth;
 use App\Models\User;
-use Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Livewire\Component;
 
 class Profile extends Component
 {
@@ -34,8 +34,7 @@ class Profile extends Component
 
     public function savePassword()
     {
-        if(password_verify($this->checkPassword, $this->oldPassword))
-        {
+        if (password_verify($this->checkPassword, $this->oldPassword)) {
             $user = User::find(Auth::user()->id)->update([
                 'password' => Hash::make($this->password),
             ]);
@@ -48,9 +47,9 @@ class Profile extends Component
 
     public function clearPassword()
     {
-        $this->checkPassword = NULL;
-        $this->password = NULL;
-        $this->confirmPassword = NULL;
+        $this->checkPassword = null;
+        $this->password = null;
+        $this->confirmPassword = null;
     }
 
 }

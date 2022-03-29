@@ -2,7 +2,7 @@
 
 @section('title', 'Form Keluarga')
     
-@section('content') 
+@section('content')
     @include('user.components.header')
     @include('user.components.sidebar')
     @include('user.form.family.content')

@@ -2,22 +2,21 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
-use Auth;
 use App\Models\Language;
+use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class TableLanguage extends Component
 {
     protected $listeners = [
-        'refreshLanguage' => '$refresh'
+        'refreshLanguage' => '$refresh',
     ];
 
     public function select($id, $select)
     {
-        if($select == "edit"){
+        if ($select == "edit") {
             $this->emit('getLanguage', $id);
-        }
-        elseif($select == "delete"){
+        } elseif ($select == "delete") {
             $this->emit('deleteLanguage', $id);
         }
     }

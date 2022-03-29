@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Auth;
+use App\Models\NotifAdmin;
 use App\Models\User;
+use App\Notifications\UserRegister;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -15,8 +16,7 @@ class UserController extends Controller
 
     public function biodata()
     {
-        if(Auth::user()->statusOne == "Proses Pendaftaran")
-        {
+        if (Auth::user()->statusOne == "Proses Pendaftaran") {
             return view('user.form.biodata.biodata');
         }
 
@@ -25,8 +25,7 @@ class UserController extends Controller
 
     public function family()
     {
-        if(Auth::user()->statusOne == "Proses Pendaftaran")
-        {
+        if (Auth::user()->statusOne == "Proses Pendaftaran") {
             return view('user.form.family.family');
         }
 
@@ -35,8 +34,7 @@ class UserController extends Controller
 
     public function education()
     {
-        if(Auth::user()->statusOne == "Proses Pendaftaran")
-        {
+        if (Auth::user()->statusOne == "Proses Pendaftaran") {
             return view('user.form.education.education');
         }
 
@@ -45,18 +43,17 @@ class UserController extends Controller
 
     public function downloadable()
     {
-        if(Auth::user()->statusOne == "Proses Pendaftaran")
-        {
-            return view('user.form.downloadable.downloadable');
-        }
+        // if(Auth::user()->statusOne == "Proses Pendaftaran")
+        // {
+        return view('user.form.downloadable.downloadable');
+        // }
 
-        return redirect()->back();
+        // return redirect()->back();
     }
 
     public function onlineTest()
     {
-        if(Auth::user()->statusOne == "Melakukan Test")
-        {
+        if (Auth::user()->statusOne == "Melakukan Test") {
             return view('user.online.test.test');
         }
 
@@ -65,8 +62,7 @@ class UserController extends Controller
 
     public function onlineInterview()
     {
-        if(Auth::user()->statusTwo == "Proses Seleksi")
-        {
+        if (Auth::user()->statusTwo == "Proses Seleksi") {
             return view('user.online.interview.interview');
         }
 
@@ -76,14 +72,41 @@ class UserController extends Controller
     public function doneOnlineTest()
     {
         User::find(Auth::user()->id)->update([
-            'statusOne' => 'Proses Seleksi'
+            'statusOne' => 'Proses Seleksi',
         ]);
+
+        $user = User::find(Auth::user()->id);
+
+        $insideMail = [
+            'lineOne' => 'Hai ' . $user->name,
+            'lineTwo' => 'Kamu Sudah Selesai Melaksanakan Proses Pendaftaran',
+            'lineThree' => 'Silahkan Menunggu Hasil Seleksi',
+        ];
+
+        $user->notify(new UserRegister($insideMail));
+
+        $content = $user->name . ' Telah Selesai Melakukan Proses Pendaftaran Beasiswa';
+
+        $targetMail = User::where('role', '=', 1)->get();
+
+        NotifAdmin::create([
+            'content' => $content,
+            'status' => 0,
+        ]);
+
+        $insideMail = [
+            'line' => $content,
+        ];
+
+        foreach ($targetMail as $target) {
+            $target->notify(new UserRegister($insideMail));
+        }
 
         return redirect()->route('user.homepage');
     }
 
     public function profile()
-    {    
+    {
         return view('user.profile.profile');
     }
 }

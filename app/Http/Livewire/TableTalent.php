@@ -2,26 +2,25 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
-use Auth;
 use App\Models\Talent;
+use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class TableTalent extends Component
 {
     protected $listeners = [
-        'refreshTalent' => '$refresh'
+        'refreshTalent' => '$refresh',
     ];
 
     public function select($id, $select)
     {
-        if($select == "edit"){
+        if ($select == "edit") {
             $this->emit('getTalent', $id);
-        }
-        elseif($select == "delete"){
+        } elseif ($select == "delete") {
             $this->emit('deleteTalent', $id);
         }
     }
-    
+
     public function render()
     {
         $talents = Talent::where('user_id', '=', Auth::user()->id)->get();

@@ -72,6 +72,7 @@
             <!-- End Universitas -->
 
             <!-- Media Social -->
+            @if($socialMedia != NULL)
             <section id="content-types">
                 <div class="row match-height">
                     <div class="col-xl">
@@ -93,6 +94,7 @@
                     </div>
                 </div>
             </section>
+            @endif
             <!-- End Media Social -->
 
             <!-- Keluarga -->

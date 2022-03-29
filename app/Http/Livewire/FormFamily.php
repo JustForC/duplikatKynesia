@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
 use App\Models\Family;
 use App\Models\Networth;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class FormFamily extends Component
 {
@@ -22,10 +22,10 @@ class FormFamily extends Component
 
     public function mount()
     {
-        if(Family::where('user_id','=',Auth::user()->id)->where('status', '=', 'Father')->exists()){
-            $father = Family::where('user_id','=',Auth::user()->id)
-                        ->where('status', '=', 'Father')
-                        ->first();
+        if (Family::where('user_id', '=', Auth::user()->id)->where('status', '=', 'Father')->exists()) {
+            $father = Family::where('user_id', '=', Auth::user()->id)
+                ->where('status', '=', 'Father')
+                ->first();
             $this->fatherName = $father->name;
             $this->fatherBirthdate = $father->birthdate;
             $this->fatherBirthplace = $father->birthplace;
@@ -34,10 +34,10 @@ class FormFamily extends Component
             $this->fatherId = $father->id;
         }
 
-        if(Family::where('user_id','=',Auth::user()->id)->where('status', '=', 'Mother')->exists()){
-            $mother = Family::where('user_id','=',Auth::user()->id)
-                        ->where('status', '=', 'Mother')
-                        ->first();
+        if (Family::where('user_id', '=', Auth::user()->id)->where('status', '=', 'Mother')->exists()) {
+            $mother = Family::where('user_id', '=', Auth::user()->id)
+                ->where('status', '=', 'Mother')
+                ->first();
             $this->motherName = $mother->name;
             $this->motherBirthdate = $mother->birthdate;
             $this->motherBirthplace = $mother->birthplace;
@@ -46,7 +46,7 @@ class FormFamily extends Component
             $this->motherId = $mother->id;
         }
 
-        if(Networth::where('user_id', '=', Auth::user()->id)->exists()){
+        if (Networth::where('user_id', '=', Auth::user()->id)->exists()) {
             $networth = Networth::where('user_id', '=', Auth::user()->id)->first();
             $this->networthValue = $networth->networth;
             $this->networthId = $networth->id;
@@ -61,9 +61,9 @@ class FormFamily extends Component
     public function save()
     {
         // Father Input
-        if($this->fatherId == NULL){
-            $message = 
-            [
+        if ($this->fatherId == null) {
+            $message =
+                [
                 'fatherName.required' => 'Nama Ayah Tidak Boleh Kosong',
                 'fatherBirthdate.required' => 'Tanggal Lahir Tidak Boleh Kosong',
                 'fatherBirthplace.required' => 'Tempat Lahir Tidak Boleh Kosong',
@@ -72,15 +72,14 @@ class FormFamily extends Component
             ];
 
             $this->validate
-            ([
+                ([
                 'fatherName' => 'required',
                 'fatherBirthdate' => 'required',
                 'fatherBirthplace' => 'required',
                 'fatherEducation' => 'required',
                 'fatherJob' => 'required',
-            ],$message);
+            ], $message);
 
-            
             $father = Family::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->fatherName,
@@ -93,8 +92,7 @@ class FormFamily extends Component
             ]);
 
             $this->fatherId = $father->id;
-        }
-        else{
+        } else {
             Family::find($this->fatherId)->update([
                 'user_id' => Auth::user()->id,
                 'name' => $this->fatherName,
@@ -104,14 +102,14 @@ class FormFamily extends Component
                 'job' => $this->fatherJob,
                 'status' => "Father",
                 'gender' => "Pria",
-            ]);  
+            ]);
         }
         // End Father Input
 
         // Mother Input
-        if($this->motherId == NULL){
-            $message = 
-            [
+        if ($this->motherId == null) {
+            $message =
+                [
                 'motherName.required' => 'Nama Ibu Tidak Boleh Kosong',
                 'motherBirthdate.required' => 'Tanggal Lahir Tidak Boleh Kosong',
                 'motherBirthplace.required' => 'Tempat Lahir Tidak Boleh Kosong',
@@ -120,14 +118,14 @@ class FormFamily extends Component
             ];
 
             $this->validate
-            ([
+                ([
                 'motherName' => 'required',
                 'motherBirthplace' => 'required',
                 'motherBirthdate' => 'required',
                 'motherEducation' => 'required',
                 'motherJob' => 'required',
-            ],$message);
-            
+            ], $message);
+
             $mother = Family::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->motherName,
@@ -140,8 +138,7 @@ class FormFamily extends Component
             ]);
 
             $this->motherId = $mother->id;
-        }
-        else{
+        } else {
             Family::find($this->motherId)->update([
                 'user_id' => Auth::user()->id,
                 'name' => $this->motherName,
@@ -151,34 +148,33 @@ class FormFamily extends Component
                 'job' => $this->motherJob,
                 'status' => "Mother",
                 'gender' => "Wanita",
-            ]);  
+            ]);
         }
         // End Mother Input
 
         // Input Networth
-        if($this->networthId == NULL){
-            $message = 
-            [
+        if ($this->networthId == null) {
+            $message =
+                [
                 'networthValue.required' => 'Penghasilan Orang Tua Tidak Boleh Kosong',
                 'networthValue.numeric' => 'Penghasilan Orang Tua Harus Berbentuk Angka',
             ];
 
             $this->validate
-            ([
-                'networthValue' => 'required|numeric'
-            ],$message);
-            
+                ([
+                'networthValue' => 'required|numeric',
+            ], $message);
+
             $networth = Networth::create([
                 'user_id' => Auth::user()->id,
-                'networth' => $this->networthValue
+                'networth' => $this->networthValue,
             ]);
 
             $this->networthId = $networth->id;
-        }
-        else{
+        } else {
             Networth::find($this->networthId)->update([
                 'user_id' => Auth::user()->id,
-                'networth' => $this->networthValue
+                'networth' => $this->networthValue,
             ]);
         }
 
@@ -199,20 +195,20 @@ class FormFamily extends Component
 
     public function clearChild()
     {
-        $this->childId = NULL;
-        $this->childName = NULL;
-        $this->childBirthdate = NULL;
-        $this->childBirthplace = NULL;
-        $this->childEducation = NULL;
-        $this->childJob = NULL;
-        $this->childGender = NULL;
+        $this->childId = null;
+        $this->childName = null;
+        $this->childBirthdate = null;
+        $this->childBirthplace = null;
+        $this->childEducation = null;
+        $this->childJob = null;
+        $this->childGender = null;
     }
 
     public function saveChild()
     {
-        if($this->childId == NULL){
-            $message = 
-            [
+        if ($this->childId == null) {
+            $message =
+                [
                 'childName.required' => 'Nama Tidak Boleh Kosong',
                 'childBirthdate.required' => 'Tanggal Lahir Tidak Boleh Kosong',
                 'childBirthplace.required' => 'Tempat Lahir Tidak Boleh Kosong',
@@ -222,14 +218,14 @@ class FormFamily extends Component
             ];
 
             $this->validate
-            ([
+                ([
                 'childName' => 'required',
                 'childBirthplace' => 'required',
                 'childBirthdate' => 'required',
                 'childGender' => 'required',
                 'childJob' => 'required',
                 'childEducation' => 'required',
-            ],$message);
+            ], $message);
 
             Family::create([
                 'user_id' => Auth::user()->id,
@@ -244,8 +240,7 @@ class FormFamily extends Component
             $this->clearChild();
             $this->dispatchBrowserEvent('showAlert');
             $this->emit('refreshTable');
-        }
-        else{
+        } else {
             Family::find($this->childId)->update([
                 'user_id' => Auth::user()->id,
                 'name' => $this->childName,

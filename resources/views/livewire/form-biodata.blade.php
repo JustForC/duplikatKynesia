@@ -62,7 +62,7 @@
                                     <div class="col-xl-6">
                                         <fieldset class="form-group">
                                             <label for="birthdate">Tanggal Lahir</label>
-                                            <input wire:model="birthdate" type='date' class="form-control pickadate" id="birthdate">
+                                            <x-input.date wire:model="birthdate"/>
                                             @error('birthdate') <h6 class="danger">{{ $message }}</h6> @enderror
                                         </fieldset>
                                     </div>

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Hash;
+use App\Models\NotifAdmin;
 use App\Models\User;
-use Auth;
-use Validator;
+use App\Notifications\UserRegister;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -22,16 +24,15 @@ class AuthController extends Controller
 
     public function doLogin(Request $request)
     {
-        $credentials=[
+        $credentials = [
             'email' => $request->email,
             'password' => $request->password,
         ];
 
-        if(Auth::guard()->attempt($credentials)){
-            if(Auth::user()->role == 0){
+        if (Auth::guard()->attempt($credentials)) {
+            if (Auth::user()->role == 0) {
                 return redirect()->route('user.homepage');
-            }
-            elseif(Auth::user()->role == 1){
+            } elseif (Auth::user()->role == 1) {
                 return redirect()->route('admin.homepage');
             }
         }
@@ -41,8 +42,8 @@ class AuthController extends Controller
 
     public function doRegister(Request $request)
     {
-        $message = 
-        [
+        $message =
+            [
             'name.required' => "Nama Tidak Boleh Kosong",
             'email.required' => "Email Tidak Boleh Kosong",
             'email.unique' => "Email Sudah Terpakai",
@@ -51,23 +52,38 @@ class AuthController extends Controller
             'password.confirmed' => "Konfirmasi Password Salah",
         ];
 
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(), [
             'name' => ('required'),
             'email' => ('required|unique:users'),
             'password' => ('required|string|min:8|confirmed'),
-        ],$message);
+        ], $message);
 
-        if($validator->fails()){
+        if ($validator->fails()) {
             return back()->withErrors($validator);
         }
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => 0,
             'statusOne' => "Proses Pendaftaran",
         ]);
+
+        $content = "User dengan nama " . $user->name . " dengan email " . $user->email . " telah membuat akun.";
+
+        NotifAdmin::create([
+            'content' => $content,
+            'status' => 0,
+        ]);
+
+        $insideMail = [
+            'lineOne' => 'Hai ' . $user->name,
+            'lineTwo' => 'Anda Sudah Berhasil Mendaftar Akun Untuk Kynesia',
+            'lineThree' => 'Silahkan Isi Form Administrasi Untuk Mendaftar Beasiswa',
+        ];
+
+        $user->notify(new UserRegister($insideMail));
 
         return redirect()->route('auth.login');
     }

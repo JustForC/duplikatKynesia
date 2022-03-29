@@ -35,7 +35,10 @@
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!-- END: Custom CSS-->
+
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> --}}
     @livewireStyles
 
 </head>
@@ -48,6 +51,10 @@
         <!-- BEGIN Vendor JS-->
 
         <!-- BEGIN: Page Vendor JS-->
+        <script src="{{asset('app-assets/vendors/js/pickers/pickadate/picker.js')}}"></script>
+        <script src="{{asset('app-assets/vendors/js/pickers/pickadate/picker.date.js')}}"></script>
+        <script src="{{asset('app-assets/vendors/js/pickers/pickadate/picker.time.js')}}"></script>
+        <script src="{{asset('app-assets/vendors/js/pickers/pickadate/legacy.js')}}"></script>
         <!-- END: Page Vendor JS-->
 
         <!-- BEGIN: Theme JS-->
@@ -57,7 +64,8 @@
         <!-- END: Theme JS-->
 
         <!-- BEGIN: Page JS-->
-        <script src="{{asset('app-assets/js/scripts/pickers/dateTime/pick-a-datetime.js')}}"></script>
+        <script src="{{asset('js/app.js')}}"></script>
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <!-- END: Page JS-->
         @yield('javascript')
 </body>

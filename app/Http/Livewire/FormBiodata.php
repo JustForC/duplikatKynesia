@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
 use App\Models\Biodata;
-use App\Models\University;
 use App\Models\SocialMedia;
-use Auth;
+use App\Models\University;
+use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class FormBiodata extends Component
 {
@@ -19,7 +19,7 @@ class FormBiodata extends Component
 
     public function mount()
     {
-        if(Biodata::where('user_id', '=', Auth::user()->id)->exists()){
+        if (Biodata::where('user_id', '=', Auth::user()->id)->exists()) {
             $biodata = Biodata::where('user_id', '=', Auth::user()->id)->first();
             $this->biodataId = $biodata->id;
             $this->name = $biodata->name;
@@ -43,7 +43,7 @@ class FormBiodata extends Component
             $this->provinceLiving = $biodata->provinceLiving;
         }
 
-        if(SocialMedia::where('user_id', '=', Auth::user()->id)->exists()){
+        if (SocialMedia::where('user_id', '=', Auth::user()->id)->exists()) {
             $socialMedia = SocialMedia::where('user_id', '=', Auth::user()->id)->first();
             $this->socialMediaId = $socialMedia->id;
             $this->instagram = $socialMedia->instagram;
@@ -52,7 +52,7 @@ class FormBiodata extends Component
             $this->tiktok = $socialMedia->tiktok;
         }
 
-        if(University::where('user_id', '=', Auth::user()->id)->exists()){
+        if (University::where('user_id', '=', Auth::user()->id)->exists()) {
             $university = University::where('user_id', '=', Auth::user()->id)->first();
             $this->universityId = $university->id;
             $this->university = $university->name;
@@ -69,9 +69,9 @@ class FormBiodata extends Component
 
     public function save()
     {
-        if($this->biodataId == NULL){
-            $message = 
-            [
+        if ($this->biodataId == null) {
+            $message =
+                [
                 'name.required' => 'Nama Tidak Boleh Kosong',
                 'nickname.required' => 'Panggilan Tidak Boleh Kosong',
                 'gender.required' => 'Jenis Kelamin Tidak Boleh Kosong',
@@ -88,17 +88,17 @@ class FormBiodata extends Component
                 'code.required' => 'Kode Pos Tidak Boleh Kosong',
                 'code.digits' => 'Kode Pos Harus 5 Digit',
                 'city.required' => 'Kota Tidak Boleh Kosong',
-                'province.required' => 'Provinsi Tidak Boleh Kosong',  
+                'province.required' => 'Provinsi Tidak Boleh Kosong',
                 'addressLiving.required' => 'Alamat Tidak Boleh Kosong',
                 'districtLiving.required' => 'Kecamatan Tidak Boleh Kosong',
                 'codeLiving.required' => 'Kode Pos Tidak Boleh Kosong',
                 'codeLiving.digits' => 'Kode Pos Harus 5 Digit',
                 'cityLiving.required' => 'Kota Tidak Boleh Kosong',
-                'provinceLiving.required' => 'Provinsi Tidak Boleh Kosong',  
+                'provinceLiving.required' => 'Provinsi Tidak Boleh Kosong',
             ];
 
             $this->validate
-            ([
+                ([
                 'name' => 'required',
                 'nickname' => 'required',
                 'gender' => 'required',
@@ -144,8 +144,7 @@ class FormBiodata extends Component
             ]);
 
             $this->biodataId = $biodata->id;
-        }
-        else{
+        } else {
             Biodata::find($this->biodataId)->update([
                 'user_id' => Auth::user()->id,
                 'name' => $this->name,
@@ -170,9 +169,8 @@ class FormBiodata extends Component
             ]);
         }
 
-        if($this->facebook != NULL){
-            if($this->socialMediaId == NULL)
-            {
+        if ($this->facebook != null) {
+            if ($this->socialMediaId == null) {
                 $socialMedia = SocialMedia::create([
                     'user_id' => Auth::user()->id,
                     'facebook' => $this->facebook,
@@ -182,9 +180,7 @@ class FormBiodata extends Component
                 ]);
 
                 $this->socialMediaId = $socialMedia->id;
-            }
-            else
-            {
+            } else {
                 SocialMedia::find($this->socialMediaId)->update([
                     'user_id' => Auth::user()->id,
                     'facebook' => $this->facebook,
@@ -195,9 +191,9 @@ class FormBiodata extends Component
             }
         }
 
-        if($this->universityId == NULL){
-            $message = 
-            [
+        if ($this->universityId == null) {
+            $message =
+                [
                 'university.required' => 'Nama Universitas Tidak Boleh Kosong',
                 'major.required' => 'Jurusan Tidak Boleh Kosong',
                 'entranceNumber.required' => 'Nomor Masuk Tidak Boleh Kosong',
@@ -206,11 +202,11 @@ class FormBiodata extends Component
             ];
 
             $this->validate
-            ([
+                ([
                 'university' => 'required',
                 'major' => 'required',
-                'entranceNumber' => 'required|between:10,14', 
-                'entranceType' => 'required', 
+                'entranceNumber' => 'required|between:10,14',
+                'entranceType' => 'required',
             ], $message);
 
             $university = University::create([
@@ -222,8 +218,7 @@ class FormBiodata extends Component
             ]);
 
             $this->universityId = $university->id;
-        }
-        else{
+        } else {
             University::find($this->universityId)->update([
                 'user_id' => Auth::user()->id,
                 'name' => $this->university,

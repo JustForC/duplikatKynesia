@@ -2,10 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\User;
-use DB;
 
 class StepOne extends Component
 {
@@ -21,35 +20,30 @@ class StepOne extends Component
     public $paginationKey = 2;
 
     protected $listeners = [
-        'refresh' => '$refresh'
+        'refresh' => '$refresh',
     ];
 
     public function selectUser($id, $mode)
     {
-        if($mode == 'accept')
-        {
+        if ($mode == 'accept') {
             $this->getUser($id);
             $this->dispatchBrowserEvent('showModalAccept');
-        }
-        elseif($mode == 'reject')
-        {
+        } elseif ($mode == 'reject') {
             $this->getUser($id);
             $this->dispatchBrowserEvent('showModalReject');
-        }
-        elseif($mode == "detail")
-        {
-            return redirect()->route('admin.detail',$id);
+        } elseif ($mode == "detail") {
+            return redirect()->route('admin.detail', $id);
         }
     }
 
     public function render()
     {
-        $users = User::where([['statusOne','=', 'Proses Seleksi'],
-                             ['name', 'LIKE', '%'.$this->searchKey.'%']])
-                     ->orWhere([['statusOne','=', 'Proses Seleksi'],
-                             ['email', 'LIKE', '%'.$this->searchKey.'%']])
-                     ->orderBy($this->sortName, $this->sortType)
-                     ->paginate($this->paginationKey);
+        $users = User::where([['statusOne', '=', 'Proses Seleksi'],
+            ['name', 'LIKE', '%' . $this->searchKey . '%']])
+            ->orWhere([['statusOne', '=', 'Proses Seleksi'],
+                ['email', 'LIKE', '%' . $this->searchKey . '%']])
+            ->orderBy($this->sortName, $this->sortType)
+            ->paginate($this->paginationKey);
         return view('livewire.step-one')->with(['users' => $users]);
     }
 
@@ -62,25 +56,22 @@ class StepOne extends Component
 
     public function accept()
     {
-        $message = 
-        [
+        $message =
+            [
             'link.required' => 'Link Wawancara Perlu Diisi',
-            'date.required' => 'Tanggal Wawancara Perlu Diisi'
+            'date.required' => 'Tanggal Wawancara Perlu Diisi',
         ];
 
         $this->validate
-        ([
+            ([
             "link" => "required",
             'date' => 'required',
         ], $message);
 
-        if(strpos($this->link,'https://') !== false)
-        {
+        if (strpos($this->link, 'https://') !== false) {
             $this->link = $this->link;
-        }
-        else
-        {
-            $this->link = "https://".$this->link;
+        } else {
+            $this->link = "https://" . $this->link;
         }
 
         User::find($this->userId)->update([
@@ -107,10 +98,10 @@ class StepOne extends Component
 
     public function clearUser()
     {
-        $this->userId = NULL;
-        $this->userName = NULL;
-        $this->link = NULL;
-        $this->date = NULL;
+        $this->userId = null;
+        $this->userName = null;
+        $this->link = null;
+        $this->date = null;
     }
 
     public function closeAccept()

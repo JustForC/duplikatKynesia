@@ -2,10 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\User;
-use DB;
 
 class Rejected extends Component
 {
@@ -18,24 +17,23 @@ class Rejected extends Component
 
     public function selectUser($id, $mode)
     {
-        if($mode == "detail")
-        {
-            return redirect()->route('admin.detail',$id);
+        if ($mode == "detail") {
+            return redirect()->route('admin.detail', $id);
         }
     }
 
     public function render()
     {
-        $users = User::where([['statusOne','=', 'Tidak Lolos'],
-                             ['name', 'LIKE', '%'.$this->searchKey.'%']])
-                     ->orWhere([['statusOne','=', 'Tidak Lolos'],
-                             ['email', 'LIKE', '%'.$this->searchKey.'%']])
-                     ->orWhere([['statusTwo','=', 'Tidak Lolos'],
-                             ['name', 'LIKE', '%'.$this->searchKey.'%']])
-                     ->orWhere([['statusTwo','=', 'Tidak Lolos'],
-                             ['email', 'LIKE', '%'.$this->searchKey.'%']])
-                     ->orderBy($this->sortName, $this->sortType)
-                     ->paginate($this->paginationKey);
+        $users = User::where([['statusOne', '=', 'Tidak Lolos'],
+            ['name', 'LIKE', '%' . $this->searchKey . '%']])
+            ->orWhere([['statusOne', '=', 'Tidak Lolos'],
+                ['email', 'LIKE', '%' . $this->searchKey . '%']])
+            ->orWhere([['statusTwo', '=', 'Tidak Lolos'],
+                ['name', 'LIKE', '%' . $this->searchKey . '%']])
+            ->orWhere([['statusTwo', '=', 'Tidak Lolos'],
+                ['email', 'LIKE', '%' . $this->searchKey . '%']])
+            ->orderBy($this->sortName, $this->sortType)
+            ->paginate($this->paginationKey);
         return view('livewire.rejected')->with(['users' => $users]);
     }
 }

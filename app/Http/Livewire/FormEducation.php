@@ -2,14 +2,14 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
-use Auth;
-use App\Models\Education;
-use App\Models\Training;
 use App\Models\Achievement;
+use App\Models\Education;
 use App\Models\Language;
 use App\Models\Organization;
 use App\Models\Talent;
+use App\Models\Training;
+use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class FormEducation extends Component
 {
@@ -60,10 +60,10 @@ class FormEducation extends Component
 
     public function mount()
     {
-        if(Education::where('user_id', '=', Auth::user()->id)->where('level','=','SD')->exists()){
+        if (Education::where('user_id', '=', Auth::user()->id)->where('level', '=', 'SD')->exists()) {
             $elementary = Education::where('user_id', '=', Auth::user()->id)
-                                    ->where('level','=','SD')
-                                    ->first();
+                ->where('level', '=', 'SD')
+                ->first();
 
             $this->elementaryId = $elementary->id;
             $this->elementaryName = $elementary->name;
@@ -73,10 +73,10 @@ class FormEducation extends Component
             $this->elementaryGraduate = $elementary->graduate;
         }
 
-        if(Education::where('user_id', '=', Auth::user()->id)->where('level','=','SMP')->exists()){
+        if (Education::where('user_id', '=', Auth::user()->id)->where('level', '=', 'SMP')->exists()) {
             $junior = Education::where('user_id', '=', Auth::user()->id)
-                                    ->where('level','=','SMP')
-                                    ->first();
+                ->where('level', '=', 'SMP')
+                ->first();
 
             $this->juniorId = $junior->id;
             $this->juniorName = $junior->name;
@@ -86,10 +86,10 @@ class FormEducation extends Component
             $this->juniorGraduate = $junior->graduate;
         }
 
-        if(Education::where('user_id', '=', Auth::user()->id)->where('level','=','SMA')->exists()){
+        if (Education::where('user_id', '=', Auth::user()->id)->where('level', '=', 'SMA')->exists()) {
             $high = Education::where('user_id', '=', Auth::user()->id)
-                                    ->where('level','=','SMA')
-                                    ->first();
+                ->where('level', '=', 'SMA')
+                ->first();
 
             $this->highId = $high->id;
             $this->highName = $high->name;
@@ -109,9 +109,9 @@ class FormEducation extends Component
     public function saveEducation()
     {
         // Input SD
-        if($this->elementaryId == NULL){
-            $message = 
-            [
+        if ($this->elementaryId == null) {
+            $message =
+                [
                 'elementaryName.required' => 'Nama Sekolah Tidak Boleh Kosong',
                 'elementaryProvince.required' => 'Provinsi Tidak Boleh Kosong',
                 'elementaryCity.required' => 'Kota Tidak Boleh Kosong',
@@ -124,13 +124,13 @@ class FormEducation extends Component
             ];
 
             $this->validate
-            ([
+                ([
                 'elementaryName' => 'required',
                 'elementaryProvince' => 'required',
                 'elementaryCity' => 'required',
                 'elementaryEnter' => 'required|numeric|digits:4',
                 'elementaryGraduate' => 'required|numeric|digits:4',
-            ],$message);
+            ], $message);
 
             $elementary = Education::create([
                 'user_id' => Auth::user()->id,
@@ -143,8 +143,7 @@ class FormEducation extends Component
             ]);
 
             $this->elementaryId = $elementary->id;
-        }
-        else{
+        } else {
             Education::find($this->elementaryId)->update([
                 'user_id' => Auth::user()->id,
                 'name' => $this->elementaryName,
@@ -158,9 +157,9 @@ class FormEducation extends Component
         // End Input SD
 
         // Input SMP
-        if($this->juniorId == NULL){
-            $message = 
-            [
+        if ($this->juniorId == null) {
+            $message =
+                [
                 'juniorName.required' => 'Nama Sekolah Tidak Boleh Kosong',
                 'juniorProvince.required' => 'Provinsi Tidak Boleh Kosong',
                 'juniorCity.required' => 'Kota Tidak Boleh Kosong',
@@ -173,7 +172,7 @@ class FormEducation extends Component
             ];
 
             $this->validate
-            ([
+                ([
                 'juniorName' => 'required',
                 'juniorProvince' => 'required',
                 'juniorCity' => 'required',
@@ -192,8 +191,7 @@ class FormEducation extends Component
             ]);
 
             $this->juniorId = $junior->id;
-        }
-        else{
+        } else {
             Education::find($this->juniorId)->update([
                 'user_id' => Auth::user()->id,
                 'name' => $this->juniorName,
@@ -207,9 +205,9 @@ class FormEducation extends Component
         // End Input SMP
 
         // Input SMA
-        if($this->highId == NULL){
-            $message = 
-            [
+        if ($this->highId == null) {
+            $message =
+                [
                 'highName.required' => 'Nama Sekolah Tidak Boleh Kosong',
                 'highProvince.required' => 'Provinsi Tidak Boleh Kosong',
                 'highCity.required' => 'Kota Tidak Boleh Kosong',
@@ -223,7 +221,7 @@ class FormEducation extends Component
             ];
 
             $this->validate
-            ([
+                ([
                 'highName' => 'required',
                 'highProvince' => 'required',
                 'highCity' => 'required',
@@ -244,8 +242,7 @@ class FormEducation extends Component
             ]);
 
             $this->highId = $high->id;
-        }
-        else{
+        } else {
             Education::find($this->highId)->update([
                 'user_id' => Auth::user()->id,
                 'name' => $this->highName,
@@ -276,9 +273,9 @@ class FormEducation extends Component
 
     public function saveTraining()
     {
-        if($this->trainingId == NULL){
-            $message = 
-            [
+        if ($this->trainingId == null) {
+            $message =
+                [
                 'trainingName.required' => 'Nama Pelatihan Tidak Boleh Kosong',
                 'trainingYear.required' => 'Tahun Diselenggarakan Pelatihan Tidak Boleh Kosong',
                 'trainingPeriod.required' => 'Lama Pelatihan Tidak Boleh Kosong',
@@ -287,7 +284,7 @@ class FormEducation extends Component
             ];
 
             $this->validate
-            ([
+                ([
                 'trainingName' => 'required',
                 'trainingYear' => 'required',
                 'trainingPeriod' => 'required',
@@ -303,8 +300,7 @@ class FormEducation extends Component
                 'organizer' => $this->trainingOrganizer,
                 'certificate' => $this->trainingCertificate,
             ]);
-        }
-        else{
+        } else {
             Training::find($this->trainingId)->update([
                 'user_id' => Auth::user()->id,
                 'name' => $this->trainingName,
@@ -322,12 +318,12 @@ class FormEducation extends Component
 
     public function clearTraining()
     {
-        $this->trainingId = NULL;
-        $this->trainingName = NULL;
-        $this->trainingYear = NULL;
-        $this->trainingPeriod = NULL;
-        $this->trainingOrganizer = NULL;
-        $this->trainingCertificate = NULL;
+        $this->trainingId = null;
+        $this->trainingName = null;
+        $this->trainingYear = null;
+        $this->trainingPeriod = null;
+        $this->trainingOrganizer = null;
+        $this->trainingCertificate = null;
     }
 
     public function deleteTraining($id)
@@ -368,20 +364,20 @@ class FormEducation extends Component
 
     public function saveAchievement()
     {
-        if($this->achievementId == NULL){
-            $message = 
-            [
+        if ($this->achievementId == null) {
+            $message =
+                [
                 'achievementName.required' => 'Nama Prestasi Tidak Boleh Kosong',
                 'achievementOrganizer.required' => 'Penyelenggara Tidak Boleh Kosong',
                 'achievementLevel.required' => 'Tingkatan Tidak Boleh Kosong',
             ];
 
             $this->validate
-            ([
+                ([
                 'achievementName' => 'required',
                 'achievementOrganizer' => 'required',
                 'achievementLevel' => 'required',
-            ],$message);
+            ], $message);
 
             Achievement::create([
                 'user_id' => Auth::user()->id,
@@ -389,8 +385,7 @@ class FormEducation extends Component
                 'organizer' => $this->achievementOrganizer,
                 'level' => $this->achievementLevel,
             ]);
-        }
-        else{
+        } else {
             Achievement::find($this->achievementId)->update([
                 'user_id' => Auth::user()->id,
                 'name' => $this->achievementName,
@@ -406,10 +401,10 @@ class FormEducation extends Component
 
     public function clearAchievement()
     {
-        $this->achievementId = NULL;
-        $this->achievementName = NULL;
-        $this->achievementOrganizer = NULL;
-        $this->achievementLevel = NULL;
+        $this->achievementId = null;
+        $this->achievementName = null;
+        $this->achievementOrganizer = null;
+        $this->achievementLevel = null;
     }
 
     public function deleteAchievement($id)
@@ -440,7 +435,7 @@ class FormEducation extends Component
 
     // Language
     public function getLanguage($id)
-    {        
+    {
         $language = Language::find($id);
         $this->languageId = $language->id;
         $this->languageName = $language->language;
@@ -452,24 +447,24 @@ class FormEducation extends Component
 
     public function saveLanguage()
     {
-        if($this->languageId == NULL){
-            $message = 
-            [
+        if ($this->languageId == null) {
+            $message =
+                [
                 'languageName.required' => 'Bahasa Asing Tidak Boleh Kosong',
                 'languageTalk.required' => 'Kemampuan Berbicara Tidak Boleh Kosong',
                 'languageRead.required' => 'Kemampuan Membaca Tidak Boleh Kosong',
                 'languageWrite.required' => 'Kemampuan Menulis Tidak Boleh Kosong',
                 'languageListen.required' => 'Kemampuan Mendengar Tidak Boleh Kosong',
             ];
-            
+
             $this->validate
-            ([
+                ([
                 'languageName' => 'required',
                 'languageTalk' => 'required',
                 'languageRead' => 'required',
                 'languageWrite' => 'required',
                 'languageListen' => 'required',
-            ],$message);
+            ], $message);
 
             Language::create([
                 'user_id' => Auth::user()->id,
@@ -479,8 +474,7 @@ class FormEducation extends Component
                 'write' => $this->languageWrite,
                 'listen' => $this->languageListen,
             ]);
-        }
-        else{
+        } else {
             Language::find($this->languageId)->update([
                 'user_id' => Auth::user()->id,
                 'language' => $this->languageName,
@@ -498,12 +492,12 @@ class FormEducation extends Component
 
     public function clearLanguage()
     {
-        $this->languageId = NULL;
-        $this->languageName = NULL;
-        $this->languageTalk = NULL;
-        $this->languageRead = NULL;
-        $this->languageWrite = NULL;
-        $this->languageListen = NULL;
+        $this->languageId = null;
+        $this->languageName = null;
+        $this->languageTalk = null;
+        $this->languageRead = null;
+        $this->languageWrite = null;
+        $this->languageListen = null;
     }
 
     public function deleteLanguage($id)
@@ -545,9 +539,9 @@ class FormEducation extends Component
 
     public function saveOrganization()
     {
-        if($this->organizationId == NULL){
-            $message = 
-            [
+        if ($this->organizationId == null) {
+            $message =
+                [
                 'organizationName.required' => 'Nama Organisasi Tidak Boleh Kosong',
                 'organizationPeriod.required' => 'Periode Tidak Boleh Kosong',
                 'organizationPosition.required' => 'Jabatan Tidak Boleh Kosong',
@@ -555,13 +549,13 @@ class FormEducation extends Component
             ];
 
             $this->validate
-            ([
+                ([
                 'organizationName' => 'required',
                 'organizationPeriod' => 'required',
                 'organizationPosition' => 'required',
                 'organizationDescription' => 'required',
-            ],$message);
-            
+            ], $message);
+
             Organization::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->organizationName,
@@ -569,8 +563,7 @@ class FormEducation extends Component
                 'position' => $this->organizationPosition,
                 'description' => $this->organizationDescription,
             ]);
-        }
-        else{
+        } else {
             Organization::find($this->organizationId)->update([
                 'user_id' => Auth::user()->id,
                 'name' => $this->organizationName,
@@ -587,11 +580,11 @@ class FormEducation extends Component
 
     public function clearOrganization()
     {
-        $this->organizationId = NULL;
-        $this->organizationName = NULL;
-        $this->organizationPeriod = NULL;
-        $this->organizationPosition = NULL;
-        $this->organizationDescription = NULL;
+        $this->organizationId = null;
+        $this->organizationName = null;
+        $this->organizationPeriod = null;
+        $this->organizationPosition = null;
+        $this->organizationDescription = null;
     }
 
     public function deleteOrganization($id)
@@ -630,23 +623,22 @@ class FormEducation extends Component
 
     public function saveTalent()
     {
-        if($this->talentId == NULL){
-            $message = 
-            [
+        if ($this->talentId == null) {
+            $message =
+                [
                 'talentName.required' => 'Nama Bakat Tidak Boleh Kosong',
             ];
 
             $this->validate
-            ([
+                ([
                 'talentName' => 'required',
             ], $message);
-            
+
             Talent::create([
                 'user_id' => Auth::user()->id,
                 'name' => $this->talentName,
             ]);
-        }
-        else{
+        } else {
             Talent::find($this->talentId)->update([
                 'user_id' => Auth::user()->id,
                 'name' => $this->talentName,
@@ -660,8 +652,8 @@ class FormEducation extends Component
 
     public function clearTalent()
     {
-        $this->talentId = NULL;
-        $this->talentName = NULL;
+        $this->talentId = null;
+        $this->talentName = null;
     }
 
     public function deleteTalent($id)
