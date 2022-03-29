@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ExcelFunction\ExportUser;
 use App\Models\Achievement;
 use App\Models\Biodata;
 use App\Models\Downloadable;
@@ -14,6 +15,7 @@ use App\Models\SocialMedia;
 use App\Models\Talent;
 use App\Models\Training;
 use App\Models\University;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminController extends Controller
 {
@@ -87,5 +89,15 @@ class AdminController extends Controller
     public function notifications()
     {
         return view('admin.notifications.notifications');
+    }
+
+    public function listUser()
+    {
+        return view('admin.user.user');
+    }
+
+    public function exportUser()
+    {
+        return Excel::download(new ExportUser, 'user.xlsx');
     }
 }

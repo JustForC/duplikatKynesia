@@ -46,4 +46,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin'], 'controlle
     Route::get('/detail/{id}', 'detail')->name('detail');
     Route::get('/profile', 'profile')->name('profile');
     Route::get('/notifications', 'notifications')->name('notifications');
+    Route::get('/export', 'exportUser')->name('export');
+    Route::get('/user', 'listUser')->name('user');
 });

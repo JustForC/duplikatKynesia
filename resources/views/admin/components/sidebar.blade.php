@@ -27,6 +27,8 @@
                     </li>
                 </ul>
             </li>
+            <li class=" nav-item @if(request()->is('admin/user')) active @endif"><a href="{{route('admin.user')}}"><i class="feather icon-users"></i><span class="menu-title">User</span></a>
+            </li>
         </ul>
     </div>
 </div>
